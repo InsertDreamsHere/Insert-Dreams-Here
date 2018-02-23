@@ -8,11 +8,11 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ]
+- [ ] TODO
 
 The following **stretch** features are implemented:
 
-- [ ]
+- [ ] TODO
 
 
 ## Video Walkthrough
