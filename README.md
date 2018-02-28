@@ -1,6 +1,6 @@
 # Group Project - *Insert Dreams Here*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Insert Dreams Here** is a photo sharing app using Parse as its backend.
 
 Time spent: **X** hours spent in total
 
