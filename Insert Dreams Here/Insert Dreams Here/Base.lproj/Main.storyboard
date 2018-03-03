@@ -182,11 +182,11 @@
             </objects>
             <point key="canvasLocation" x="597.60000000000002" y="1466.7166416791606"/>
         </scene>
-        <!--Map-->
+        <!--Item-->
         <scene sceneID="5HA-4a-sHX">
             <objects>
                 <navigationController storyboardIdentifier="MapViewController" automaticallyAdjustsScrollViewInsets="NO" id="LXR-OD-60a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="MYx-fN-enf"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="MYx-fN-enf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="guM-Kk-4li">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
