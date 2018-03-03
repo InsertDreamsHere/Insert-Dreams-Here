@@ -23,10 +23,17 @@ class LoginViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  @IBAction func onTap(_ sender: Any) {
+    view.endEditing(true)
+  }
   @IBAction func onSignUp(_ sender: Any) {
+    print("Yay, created new user!")
+    self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
   }
   
   @IBAction func onLogIn(_ sender: Any) {
+    print("You're logged in!")
+    self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
   }
   
 }
