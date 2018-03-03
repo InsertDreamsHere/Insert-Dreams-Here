@@ -13,6 +13,7 @@ class DreamCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeStampLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
