@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294455204A207F00FE7A60 /* ProfileViewController.swift */; };
+		80294458204A216600FE7A60 /* DreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294457204A216600FE7A60 /* DreamCell.swift */; };
 		DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBB204A199300357BA3 /* AppDelegate.swift */; };
 		DB062CBE204A199300357BA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBD204A199300357BA3 /* ViewController.swift */; };
 		DB062CC1204A199300357BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB062CBF204A199300357BA3 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		80294455204A207F00FE7A60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		80294457204A216600FE7A60 /* DreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamCell.swift; sourceTree = "<group>"; };
 		DB062CB8204A199300357BA3 /* Insert Dreams Here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Insert Dreams Here.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB062CBB204A199300357BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB062CBD204A199300357BA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				DB062CC2204A199300357BA3 /* Assets.xcassets */,
 				DB062CC4204A199300357BA3 /* LaunchScreen.storyboard */,
 				DB062CC7204A199300357BA3 /* Info.plist */,
+				80294455204A207F00FE7A60 /* ProfileViewController.swift */,
+				80294457204A216600FE7A60 /* DreamCell.swift */,
 			);
 			path = "Insert Dreams Here";
 			sourceTree = "<group>";
@@ -264,6 +270,8 @@
 			files = (
 				DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */,
 				DB062CBE204A199300357BA3 /* ViewController.swift in Sources */,
+				80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */,
+				80294458204A216600FE7A60 /* DreamCell.swift in Sources */,
 				DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
