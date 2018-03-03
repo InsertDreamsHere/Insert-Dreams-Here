@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A4DA4A1204A28AD00167173 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DA4A0204A28AD00167173 /* MapCell.swift */; };
+		0A4DA4A3204A697600167173 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DA4A2204A697600167173 /* MapViewController.swift */; };
 		DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBB204A199300357BA3 /* AppDelegate.swift */; };
 		DB062CBE204A199300357BA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBD204A199300357BA3 /* ViewController.swift */; };
 		DB062CC1204A199300357BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB062CBF204A199300357BA3 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0A4DA4A0204A28AD00167173 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
+		0A4DA4A2204A697600167173 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DB062CB8204A199300357BA3 /* Insert Dreams Here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Insert Dreams Here.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB062CBB204A199300357BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB062CBD204A199300357BA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				DB062CC4204A199300357BA3 /* LaunchScreen.storyboard */,
 				DB062CC7204A199300357BA3 /* Info.plist */,
 				0A4DA4A0204A28AD00167173 /* MapCell.swift */,
+				0A4DA4A2204A697600167173 /* MapViewController.swift */,
 			);
 			path = "Insert Dreams Here";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */,
 				DB062CBE204A199300357BA3 /* ViewController.swift in Sources */,
 				0A4DA4A1204A28AD00167173 /* MapCell.swift in Sources */,
+				0A4DA4A3204A697600167173 /* MapViewController.swift in Sources */,
 				DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
