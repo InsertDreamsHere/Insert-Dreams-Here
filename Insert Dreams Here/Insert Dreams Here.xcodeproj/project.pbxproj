@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBB204A199300357BA3 /* AppDelegate.swift */; };
+		DB062CBE204A199300357BA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBD204A199300357BA3 /* ViewController.swift */; };
+		DB062CC1204A199300357BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB062CBF204A199300357BA3 /* Main.storyboard */; };
+		DB062CC3204A199300357BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB062CC2204A199300357BA3 /* Assets.xcassets */; };
+		DB062CC6204A199300357BA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB062CC4204A199300357BA3 /* LaunchScreen.storyboard */; };
+		DB062CD1204A199300357BA3 /* Insert_Dreams_HereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CD0204A199300357BA3 /* Insert_Dreams_HereTests.swift */; };
+		DB062CDC204A199300357BA3 /* Insert_Dreams_HereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CDB204A199300357BA3 /* Insert_Dreams_HereUITests.swift */; };
+		DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CE9204A1B5100357BA3 /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB062CCD204A199300357BA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB062CB0204A199300357BA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB062CB7204A199300357BA3;
+			remoteInfo = "Insert Dreams Here";
+		};
+		DB062CD8204A199300357BA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB062CB0204A199300357BA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB062CB7204A199300357BA3;
+			remoteInfo = "Insert Dreams Here";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB062CB8204A199300357BA3 /* Insert Dreams Here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Insert Dreams Here.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB062CBB204A199300357BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB062CBD204A199300357BA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB062CC0204A199300357BA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB062CC2204A199300357BA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB062CC5204A199300357BA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB062CC7204A199300357BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB062CCC204A199300357BA3 /* Insert Dreams HereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Insert Dreams HereTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB062CD0204A199300357BA3 /* Insert_Dreams_HereTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insert_Dreams_HereTests.swift; sourceTree = "<group>"; };
+		DB062CD2204A199300357BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB062CD7204A199300357BA3 /* Insert Dreams HereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Insert Dreams HereUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB062CDB204A199300357BA3 /* Insert_Dreams_HereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insert_Dreams_HereUITests.swift; sourceTree = "<group>"; };
+		DB062CDD204A199300357BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB062CE9204A1B5100357BA3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB062CB5204A199300357BA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB062CC9204A199300357BA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB062CD4204A199300357BA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB062CAF204A199300357BA3 = {
+			isa = PBXGroup;
+			children = (
+				DB062CBA204A199300357BA3 /* Insert Dreams Here */,
+				DB062CCF204A199300357BA3 /* Insert Dreams HereTests */,
+				DB062CDA204A199300357BA3 /* Insert Dreams HereUITests */,
+				DB062CB9204A199300357BA3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB062CB9204A199300357BA3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB062CB8204A199300357BA3 /* Insert Dreams Here.app */,
+				DB062CCC204A199300357BA3 /* Insert Dreams HereTests.xctest */,
+				DB062CD7204A199300357BA3 /* Insert Dreams HereUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB062CBA204A199300357BA3 /* Insert Dreams Here */ = {
+			isa = PBXGroup;
+			children = (
+				DB062CBB204A199300357BA3 /* AppDelegate.swift */,
+				DB062CBD204A199300357BA3 /* ViewController.swift */,
+				DB062CBF204A199300357BA3 /* Main.storyboard */,
+				DB062CE9204A1B5100357BA3 /* LoginViewController.swift */,
+				DB062CC2204A199300357BA3 /* Assets.xcassets */,
+				DB062CC4204A199300357BA3 /* LaunchScreen.storyboard */,
+				DB062CC7204A199300357BA3 /* Info.plist */,
+			);
+			path = "Insert Dreams Here";
+			sourceTree = "<group>";
+		};
+		DB062CCF204A199300357BA3 /* Insert Dreams HereTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB062CD0204A199300357BA3 /* Insert_Dreams_HereTests.swift */,
+				DB062CD2204A199300357BA3 /* Info.plist */,
+			);
+			path = "Insert Dreams HereTests";
+			sourceTree = "<group>";
+		};
+		DB062CDA204A199300357BA3 /* Insert Dreams HereUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DB062CDB204A199300357BA3 /* Insert_Dreams_HereUITests.swift */,
+				DB062CDD204A199300357BA3 /* Info.plist */,
+			);
+			path = "Insert Dreams HereUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB062CB7204A199300357BA3 /* Insert Dreams Here */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB062CE0204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams Here" */;
+			buildPhases = (
+				DB062CB4204A199300357BA3 /* Sources */,
+				DB062CB5204A199300357BA3 /* Frameworks */,
+				DB062CB6204A199300357BA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Insert Dreams Here";
+			productName = "Insert Dreams Here";
+			productReference = DB062CB8204A199300357BA3 /* Insert Dreams Here.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB062CCB204A199300357BA3 /* Insert Dreams HereTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB062CE3204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams HereTests" */;
+			buildPhases = (
+				DB062CC8204A199300357BA3 /* Sources */,
+				DB062CC9204A199300357BA3 /* Frameworks */,
+				DB062CCA204A199300357BA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB062CCE204A199300357BA3 /* PBXTargetDependency */,
+			);
+			name = "Insert Dreams HereTests";
+			productName = "Insert Dreams HereTests";
+			productReference = DB062CCC204A199300357BA3 /* Insert Dreams HereTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB062CD6204A199300357BA3 /* Insert Dreams HereUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB062CE6204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams HereUITests" */;
+			buildPhases = (
+				DB062CD3204A199300357BA3 /* Sources */,
+				DB062CD4204A199300357BA3 /* Frameworks */,
+				DB062CD5204A199300357BA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB062CD9204A199300357BA3 /* PBXTargetDependency */,
+			);
+			name = "Insert Dreams HereUITests";
+			productName = "Insert Dreams HereUITests";
+			productReference = DB062CD7204A199300357BA3 /* Insert Dreams HereUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB062CB0204A199300357BA3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Mavey Ma";
+				TargetAttributes = {
+					DB062CB7204A199300357BA3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					DB062CCB204A199300357BA3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DB062CB7204A199300357BA3;
+					};
+					DB062CD6204A199300357BA3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DB062CB7204A199300357BA3;
+					};
+				};
+			};
+			buildConfigurationList = DB062CB3204A199300357BA3 /* Build configuration list for PBXProject "Insert Dreams Here" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB062CAF204A199300357BA3;
+			productRefGroup = DB062CB9204A199300357BA3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB062CB7204A199300357BA3 /* Insert Dreams Here */,
+				DB062CCB204A199300357BA3 /* Insert Dreams HereTests */,
+				DB062CD6204A199300357BA3 /* Insert Dreams HereUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB062CB6204A199300357BA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB062CC6204A199300357BA3 /* LaunchScreen.storyboard in Resources */,
+				DB062CC3204A199300357BA3 /* Assets.xcassets in Resources */,
+				DB062CC1204A199300357BA3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB062CCA204A199300357BA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB062CD5204A199300357BA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB062CB4204A199300357BA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */,
+				DB062CBE204A199300357BA3 /* ViewController.swift in Sources */,
+				DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB062CC8204A199300357BA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB062CD1204A199300357BA3 /* Insert_Dreams_HereTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB062CD3204A199300357BA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB062CDC204A199300357BA3 /* Insert_Dreams_HereUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB062CCE204A199300357BA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB062CB7204A199300357BA3 /* Insert Dreams Here */;
+			targetProxy = DB062CCD204A199300357BA3 /* PBXContainerItemProxy */;
+		};
+		DB062CD9204A199300357BA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB062CB7204A199300357BA3 /* Insert Dreams Here */;
+			targetProxy = DB062CD8204A199300357BA3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DB062CBF204A199300357BA3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB062CC0204A199300357BA3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DB062CC4204A199300357BA3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB062CC5204A199300357BA3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB062CDE204A199300357BA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB062CDF204A199300357BA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB062CE1204A199300357BA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ5CM398TH;
+				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.mma.HONY;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB062CE2204A199300357BA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ5CM398TH;
+				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.mma.HONY;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DB062CE4204A199300357BA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ5CM398TH;
+				INFOPLIST_FILE = "Insert Dreams HereTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.csumb.mma.Insert-Dreams-HereTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Insert Dreams Here.app/Insert Dreams Here";
+			};
+			name = Debug;
+		};
+		DB062CE5204A199300357BA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ5CM398TH;
+				INFOPLIST_FILE = "Insert Dreams HereTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.csumb.mma.Insert-Dreams-HereTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Insert Dreams Here.app/Insert Dreams Here";
+			};
+			name = Release;
+		};
+		DB062CE7204A199300357BA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ5CM398TH;
+				INFOPLIST_FILE = "Insert Dreams HereUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.csumb.mma.Insert-Dreams-HereUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Insert Dreams Here";
+			};
+			name = Debug;
+		};
+		DB062CE8204A199300357BA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PQ5CM398TH;
+				INFOPLIST_FILE = "Insert Dreams HereUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.csumb.mma.Insert-Dreams-HereUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Insert Dreams Here";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB062CB3204A199300357BA3 /* Build configuration list for PBXProject "Insert Dreams Here" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB062CDE204A199300357BA3 /* Debug */,
+				DB062CDF204A199300357BA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB062CE0204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams Here" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB062CE1204A199300357BA3 /* Debug */,
+				DB062CE2204A199300357BA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB062CE3204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams HereTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB062CE4204A199300357BA3 /* Debug */,
+				DB062CE5204A199300357BA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB062CE6204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams HereUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB062CE7204A199300357BA3 /* Debug */,
+				DB062CE8204A199300357BA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB062CB0204A199300357BA3 /* Project object */;
+}
