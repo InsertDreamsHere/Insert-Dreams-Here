@@ -15,6 +15,7 @@
 		DB062CD1204A199300357BA3 /* Insert_Dreams_HereTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CD0204A199300357BA3 /* Insert_Dreams_HereTests.swift */; };
 		DB062CDC204A199300357BA3 /* Insert_Dreams_HereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CDB204A199300357BA3 /* Insert_Dreams_HereUITests.swift */; };
 		DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CE9204A1B5100357BA3 /* LoginViewController.swift */; };
+		DB062CEC204A3E1700357BA3 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		DB062CDB204A199300357BA3 /* Insert_Dreams_HereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insert_Dreams_HereUITests.swift; sourceTree = "<group>"; };
 		DB062CDD204A199300357BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB062CE9204A1B5100357BA3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				DB062CBD204A199300357BA3 /* ViewController.swift */,
 				DB062CBF204A199300357BA3 /* Main.storyboard */,
 				DB062CE9204A1B5100357BA3 /* LoginViewController.swift */,
+				DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */,
 				DB062CC2204A199300357BA3 /* Assets.xcassets */,
 				DB062CC4204A199300357BA3 /* LaunchScreen.storyboard */,
 				DB062CC7204A199300357BA3 /* Info.plist */,
@@ -265,6 +268,7 @@
 				DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */,
 				DB062CBE204A199300357BA3 /* ViewController.swift in Sources */,
 				DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */,
+				DB062CEC204A3E1700357BA3 /* ComposeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
