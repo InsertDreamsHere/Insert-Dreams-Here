@@ -9,20 +9,31 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-  @IBOutlet weak var testEnterButton: UIButton!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  @IBOutlet weak var usernameTextField: UITextField!
+  @IBOutlet weak var passwordTextField: UITextField!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-  @IBAction func onButtonClick(_ sender: Any) {
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  @IBAction func onTap(_ sender: Any) {
+    view.endEditing(true)
+  }
+  @IBAction func onSignUp(_ sender: Any) {
+    print("Yay, created new user!")
+    self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
+  }
+  
+  @IBAction func onLogIn(_ sender: Any) {
+    print("You're logged in!")
+    self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
   }
   
 }
