@@ -111,7 +111,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wNl-au-J8N"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Compose" id="LOV-Xi-aqR"/>
+                    <navigationItem key="navigationItem" title="Compose" id="LOV-Xi-aqR">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="Hpe-Ev-KHv">
+                            <connections>
+                                <action selector="onPost:" destination="m9H-bL-B51" id="HVx-kA-MMF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp7-n8-BMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

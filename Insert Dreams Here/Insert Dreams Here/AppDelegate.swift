@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.logOut()
     }
     
+    // Keep a look out for if user clicked "Cancel"
+    NotificationCenter.default.addObserver(forName: Notification.Name("didCancel"), object: nil, queue: OperationQueue.main) { (Notification) in
+      print("Logout notification received")
+      self.logOut()
+    }
+    
     return true
   }
   
