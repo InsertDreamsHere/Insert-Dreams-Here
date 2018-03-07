@@ -21,8 +21,5 @@ class ComposeViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func onLogout(_ sender: Any) {
-    print("Clicked logout")
-    NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
-  }
+  
 }
