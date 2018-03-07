@@ -10,9 +10,12 @@ import UIKit
 
 class ProfileViewController: UIViewController {
   
-  @IBOutlet weak var profilePic: UIImageView!
-  @IBOutlet weak var biogrophyLabel: UILabel!
-  
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var biogrophyLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var dateJoinedLabel: UILabel!
+    @IBOutlet weak var userLocationLabel: UILabel!
+    
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,4 +33,6 @@ class ProfileViewController: UIViewController {
     NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
   }
   
+    @IBAction func onEdit(_ sender: Any) {
+    }
 }
