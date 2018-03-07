@@ -11,6 +11,9 @@ import UIKit
 class MapCell: UITableViewCell {
     @IBOutlet weak var dreamTitleLabel: UILabel!
     @IBOutlet weak var dreamContentLabel: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var postDateLabel: UILabel!
+    @IBOutlet weak var postLocationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

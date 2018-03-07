@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -156,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="92" y="807"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="T6h-a9-hRW">
             <objects>
                 <viewController id="oOO-PR-7MY" customClass="MapViewController" customModule="Insert_Dreams_Here" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,6 +178,7 @@
                                 <rect key="frame" x="0.0" y="373" width="375" height="294"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="ivB-Te-Pff" secondAttribute="height" multiplier="125:98" id="OWL-5p-vTW"/>
                                     <constraint firstAttribute="height" constant="294" id="o5A-z6-lRm"/>
                                 </constraints>
                                 <prototypes>
@@ -187,12 +189,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwN-ye-LVa">
-                                                    <rect key="frame" x="15" y="0.0" width="95" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIM-jw-obv">
                                                     <rect key="frame" x="15" y="29" width="345" height="91"/>
                                                     <string key="text">Last night, I dreamt about me flying away to the moon. Then I encountered a space craft from SpaceX and I said hi to the astronounts.</string>
@@ -200,19 +196,57 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dream Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwN-ye-LVa">
+                                                    <rect key="frame" x="66" y="6" width="95" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8TX-PP-VEo">
+                                                    <rect key="frame" x="15" y="-6" width="34" height="33"/>
+                                                    <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="cFn-HV-gVa"/>
+                                                        <constraint firstAttribute="width" constant="34" id="f7y-ot-9bE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/10/2018" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne8-4Z-iMN">
+                                                    <rect key="frame" x="303" y="9" width="57" height="15"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monterey" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFB-oZ-gaM">
+                                                    <rect key="frame" x="306" y="124" width="54" height="15"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="8TX-PP-VEo" firstAttribute="leading" secondItem="hzC-2t-TM3" secondAttribute="leading" constant="15" id="226-XA-jDn"/>
                                                 <constraint firstItem="CIM-jw-obv" firstAttribute="leading" secondItem="hzC-2t-TM3" secondAttribute="leadingMargin" id="3Gy-5F-qxz"/>
-                                                <constraint firstItem="EwN-ye-LVa" firstAttribute="leading" secondItem="hzC-2t-TM3" secondAttribute="leading" constant="15" id="3ca-Se-NC2"/>
-                                                <constraint firstItem="CIM-jw-obv" firstAttribute="top" secondItem="EwN-ye-LVa" secondAttribute="bottom" constant="8" id="7fe-Wr-f9B"/>
-                                                <constraint firstItem="EwN-ye-LVa" firstAttribute="top" secondItem="hzC-2t-TM3" secondAttribute="top" id="fw4-Qe-Fdo"/>
+                                                <constraint firstItem="Ne8-4Z-iMN" firstAttribute="top" secondItem="hzC-2t-TM3" secondAttribute="top" constant="9" id="GFa-Up-KK3"/>
+                                                <constraint firstItem="8TX-PP-VEo" firstAttribute="bottom" secondItem="EwN-ye-LVa" secondAttribute="bottom" id="Hfb-bs-mlr"/>
+                                                <constraint firstItem="ZFB-oZ-gaM" firstAttribute="trailing" secondItem="hzC-2t-TM3" secondAttribute="trailingMargin" id="KQQ-Un-q9U"/>
+                                                <constraint firstItem="Ne8-4Z-iMN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hzC-2t-TM3" secondAttribute="leading" constant="20" symbolic="YES" id="TBi-T4-v8g"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EwN-ye-LVa" secondAttribute="trailing" constant="20" symbolic="YES" id="Yaf-2F-4HZ"/>
+                                                <constraint firstItem="EwN-ye-LVa" firstAttribute="leading" secondItem="8TX-PP-VEo" secondAttribute="trailing" constant="17" id="ba5-1X-qnh"/>
+                                                <constraint firstItem="8TX-PP-VEo" firstAttribute="top" secondItem="hzC-2t-TM3" secondAttribute="top" constant="-6" id="cAG-M1-395"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ne8-4Z-iMN" secondAttribute="trailing" constant="15" id="l3Q-ZD-h80"/>
                                                 <constraint firstItem="CIM-jw-obv" firstAttribute="trailing" secondItem="hzC-2t-TM3" secondAttribute="trailingMargin" id="lUl-2d-8kF"/>
+                                                <constraint firstItem="CIM-jw-obv" firstAttribute="top" secondItem="8TX-PP-VEo" secondAttribute="bottom" constant="2" id="ot8-DU-pQV"/>
+                                                <constraint firstItem="ZFB-oZ-gaM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hzC-2t-TM3" secondAttribute="leadingMargin" id="vTI-Xs-SxF"/>
+                                                <constraint firstItem="ZFB-oZ-gaM" firstAttribute="top" secondItem="CIM-jw-obv" secondAttribute="bottom" constant="4" id="y8T-0z-QhM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dreamContentLabel" destination="CIM-jw-obv" id="xFN-FW-fx4"/>
                                             <outlet property="dreamTitleLabel" destination="EwN-ye-LVa" id="Fyf-W3-ae2"/>
+                                            <outlet property="postDateLabel" destination="Ne8-4Z-iMN" id="QeQ-Vs-eZw"/>
+                                            <outlet property="postLocationLabel" destination="ZFB-oZ-gaM" id="q2L-Tx-nAo"/>
+                                            <outlet property="userImage" destination="8TX-PP-VEo" id="Vgn-Sl-CPg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -233,20 +267,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cpD-7p-6FQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rI4-Qf-5YO"/>
+                    <navigationItem key="navigationItem" title="Map" id="rI4-Qf-5YO"/>
                     <connections>
                         <outlet property="mapTableView" destination="ivB-Te-Pff" id="zMM-mb-TZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCI-n9-q24" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="841" y="1532"/>
+            <point key="canvasLocation" x="840.79999999999995" y="1531.4842578710645"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Map-->
         <scene sceneID="5HA-4a-sHX">
             <objects>
                 <navigationController storyboardIdentifier="MapViewController" automaticallyAdjustsScrollViewInsets="NO" id="LXR-OD-60a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="MYx-fN-enf" colorLabel="IBBuiltInLabel-Orange"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="MYx-fN-enf" colorLabel="IBBuiltInLabel-Orange"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="guM-Kk-4li">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
