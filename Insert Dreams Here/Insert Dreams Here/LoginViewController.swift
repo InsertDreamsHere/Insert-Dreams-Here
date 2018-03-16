@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
   
@@ -27,13 +28,48 @@ class LoginViewController: UIViewController {
     view.endEditing(true)
   }
   @IBAction func onSignUp(_ sender: Any) {
+    registerUser()
     print("Yay, created new user!")
-    self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
   }
   
   @IBAction func onLogIn(_ sender: Any) {
+    loginUser()
     print("You're logged in!")
-    self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
   }
-  
+    func registerUser() {
+        // initialize a user object
+        let newUser = PFUser()
+        
+        // set user properties
+        newUser.username = usernameTextField.text
+        //newUser.email = emailLabel.text
+        newUser.password = passwordTextField.text
+        
+        // call sign up function on the object
+        newUser.signUpInBackground { (success: Bool, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("User Registered successfully")
+                self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
+                // manually segue to logged in view
+            }
+        }
+    }
+    func loginUser() {
+        
+        let username = usernameTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print("User log in failed: \(error.localizedDescription)")
+            } else {
+                print("User logged in successfully")
+                self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
+                // display view controller that needs to shown after successful login
+            }
+        }
+    }
 }
+

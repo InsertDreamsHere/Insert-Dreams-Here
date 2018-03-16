@@ -1,0 +1,6 @@
+framework module Pods_Insert_Dreams_HereUITests {
+  umbrella header "Pods-Insert Dreams HereUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

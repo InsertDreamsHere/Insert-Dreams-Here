@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A4DA4A1204A28AD00167173 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DA4A0204A28AD00167173 /* MapCell.swift */; };
 		0A4DA4A3204A697600167173 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DA4A2204A697600167173 /* MapViewController.swift */; };
+		22FEF640EA0B80EA0A68AE0B /* Pods_Insert_Dreams_Here.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA691EFCF3E92F028B57DFC /* Pods_Insert_Dreams_Here.framework */; };
+		44677E45024E462971F0AA80 /* Pods_Insert_Dreams_HereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */; };
 		80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294455204A207F00FE7A60 /* ProfileViewController.swift */; };
 		80294458204A216600FE7A60 /* DreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294457204A216600FE7A60 /* DreamCell.swift */; };
 		DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBB204A199300357BA3 /* AppDelegate.swift */; };
@@ -20,6 +22,7 @@
 		DB062CDC204A199300357BA3 /* Insert_Dreams_HereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CDB204A199300357BA3 /* Insert_Dreams_HereUITests.swift */; };
 		DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CE9204A1B5100357BA3 /* LoginViewController.swift */; };
 		DB062CEC204A3E1700357BA3 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */; };
+		F8B5DDC7D2741BD4CE29F5A8 /* Pods_Insert_Dreams_HereUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019599D3F9ED8B7E453D28EA /* Pods_Insert_Dreams_HereUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		019599D3F9ED8B7E453D28EA /* Pods_Insert_Dreams_HereUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_HereUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4DA4A0204A28AD00167173 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		0A4DA4A2204A697600167173 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2403FBCE0F1C82112AC14603 /* Pods-Insert Dreams Here.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams Here.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here.release.xcconfig"; sourceTree = "<group>"; };
+		637436C6D181561832830E77 /* Pods-Insert Dreams HereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80294455204A207F00FE7A60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		80294457204A216600FE7A60 /* DreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamCell.swift; sourceTree = "<group>"; };
+		9262B85A230A10B584687066 /* Pods-Insert Dreams HereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_HereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADA691EFCF3E92F028B57DFC /* Pods_Insert_Dreams_Here.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_Here.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDB17A6DA4F6E1CCAEC97130 /* Pods-Insert Dreams HereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests.release.xcconfig"; sourceTree = "<group>"; };
+		CEB2A8244B1F2FDEF04C0DA7 /* Pods-Insert Dreams Here.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams Here.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here.debug.xcconfig"; sourceTree = "<group>"; };
 		DB062CB8204A199300357BA3 /* Insert Dreams Here.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Insert Dreams Here.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB062CBB204A199300357BA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB062CBD204A199300357BA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +70,7 @@
 		DB062CDD204A199300357BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB062CE9204A1B5100357BA3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		FBF544380C17CC80B6CE0A6F /* Pods-Insert Dreams HereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FEF640EA0B80EA0A68AE0B /* Pods_Insert_Dreams_Here.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44677E45024E462971F0AA80 /* Pods_Insert_Dreams_HereTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +94,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8B5DDC7D2741BD4CE29F5A8 /* Pods_Insert_Dreams_HereUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E5C478451CAE8C593B289A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEB2A8244B1F2FDEF04C0DA7 /* Pods-Insert Dreams Here.debug.xcconfig */,
+				2403FBCE0F1C82112AC14603 /* Pods-Insert Dreams Here.release.xcconfig */,
+				637436C6D181561832830E77 /* Pods-Insert Dreams HereTests.debug.xcconfig */,
+				BDB17A6DA4F6E1CCAEC97130 /* Pods-Insert Dreams HereTests.release.xcconfig */,
+				9262B85A230A10B584687066 /* Pods-Insert Dreams HereUITests.debug.xcconfig */,
+				FBF544380C17CC80B6CE0A6F /* Pods-Insert Dreams HereUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		727FB7FAB4D684E60948FF90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADA691EFCF3E92F028B57DFC /* Pods_Insert_Dreams_Here.framework */,
+				9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */,
+				019599D3F9ED8B7E453D28EA /* Pods_Insert_Dreams_HereUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DB062CAF204A199300357BA3 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +131,8 @@
 				DB062CCF204A199300357BA3 /* Insert Dreams HereTests */,
 				DB062CDA204A199300357BA3 /* Insert Dreams HereUITests */,
 				DB062CB9204A199300357BA3 /* Products */,
+				5E5C478451CAE8C593B289A7 /* Pods */,
+				727FB7FAB4D684E60948FF90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB062CE0204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams Here" */;
 			buildPhases = (
+				68BC0149D29B1F44F49C989A /* [CP] Check Pods Manifest.lock */,
 				DB062CB4204A199300357BA3 /* Sources */,
 				DB062CB5204A199300357BA3 /* Frameworks */,
 				DB062CB6204A199300357BA3 /* Resources */,
+				84063DD241135E6D1D3673E4 /* [CP] Embed Pods Frameworks */,
+				6D5468905E13CDB9683569A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB062CE3204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams HereTests" */;
 			buildPhases = (
+				94704EA8C28DA57A083FC499 /* [CP] Check Pods Manifest.lock */,
 				DB062CC8204A199300357BA3 /* Sources */,
 				DB062CC9204A199300357BA3 /* Frameworks */,
 				DB062CCA204A199300357BA3 /* Resources */,
+				1345DAE950246108B82FA8DF /* [CP] Embed Pods Frameworks */,
+				25E3B360789FE9EDF2CEC9A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB062CE6204A199300357BA3 /* Build configuration list for PBXNativeTarget "Insert Dreams HereUITests" */;
 			buildPhases = (
+				B68B67BAEB1CA7B0FD6B2305 /* [CP] Check Pods Manifest.lock */,
 				DB062CD3204A199300357BA3 /* Sources */,
 				DB062CD4204A199300357BA3 /* Frameworks */,
 				DB062CD5204A199300357BA3 /* Resources */,
+				CF9E255B32A602FE969E0B89 /* [CP] Embed Pods Frameworks */,
+				51A6A35DB192D4BC4E41BDE7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +320,158 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1345DAE950246108B82FA8DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25E3B360789FE9EDF2CEC9A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51A6A35DB192D4BC4E41BDE7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68BC0149D29B1F44F49C989A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Insert Dreams Here-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D5468905E13CDB9683569A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84063DD241135E6D1D3673E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94704EA8C28DA57A083FC499 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Insert Dreams HereTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B68B67BAEB1CA7B0FD6B2305 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Insert Dreams HereUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF9E255B32A602FE969E0B89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB062CB4204A199300357BA3 /* Sources */ = {
@@ -448,6 +649,7 @@
 		};
 		DB062CE1204A199300357BA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEB2A8244B1F2FDEF04C0DA7 /* Pods-Insert Dreams Here.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -463,6 +665,7 @@
 		};
 		DB062CE2204A199300357BA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2403FBCE0F1C82112AC14603 /* Pods-Insert Dreams Here.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +681,7 @@
 		};
 		DB062CE4204A199300357BA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 637436C6D181561832830E77 /* Pods-Insert Dreams HereTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -495,6 +699,7 @@
 		};
 		DB062CE5204A199300357BA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDB17A6DA4F6E1CCAEC97130 /* Pods-Insert Dreams HereTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +717,7 @@
 		};
 		DB062CE7204A199300357BA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9262B85A230A10B584687066 /* Pods-Insert Dreams HereUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +734,7 @@
 		};
 		DB062CE8204A199300357BA3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBF544380C17CC80B6CE0A6F /* Pods-Insert Dreams HereUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
