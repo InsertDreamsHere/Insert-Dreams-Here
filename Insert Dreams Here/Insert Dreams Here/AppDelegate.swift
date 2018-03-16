@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    Parse.initialize(
+        with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+            configuration.applicationId = "InsertDreamsHere"
+            configuration.clientKey = "ajsdfjoJSDfj234sdf" // set to nil assuming you have not set clientKey
+            configuration.server = "http://insert-dreams-here.herokuapp.com/parse"
+        }))
     
     // Keep a look out for if user clicked "Logout"
     NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
