@@ -29,47 +29,63 @@ class LoginViewController: UIViewController {
   }
   @IBAction func onSignUp(_ sender: Any) {
     registerUser()
-    print("Yay, created new user!")
   }
   
   @IBAction func onLogIn(_ sender: Any) {
     loginUser()
-    print("You're logged in!")
   }
-    func registerUser() {
-        // initialize a user object
-        let newUser = PFUser()
-        
-        // set user properties
-        newUser.username = usernameTextField.text
-        //newUser.email = emailLabel.text
-        newUser.password = passwordTextField.text
-        
-        // call sign up function on the object
-        newUser.signUpInBackground { (success: Bool, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                print("User Registered successfully")
-                self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
-                // manually segue to logged in view
-            }
+  func registerUser() {
+    if (usernameTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
+      self.popUpMessage(title: "Whoops!", message: "Username and password cannot be left empty.", confirmation: "OK")
+    } else {
+      
+      // initialize a user object
+      let newUser = PFUser()
+      
+      // set user properties
+      newUser.username = usernameTextField.text
+      //newUser.email = emailLabel.text
+      newUser.password = passwordTextField.text
+      
+      // call sign up function on the object
+      newUser.signUpInBackground { (success: Bool, error: Error?) in
+        if let error = error {
+          print(error.localizedDescription)
+          self.popUpMessage(title: "Failed to sign up.", message: error.localizedDescription, confirmation: "OK")
+        } else {
+          print("Yay, created new user!")
+          self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
+          // manually segue to logged in view
         }
+      }
     }
-    func loginUser() {
-        
-        let username = usernameTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        
-        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
-            if let error = error {
-                print("User log in failed: \(error.localizedDescription)")
-            } else {
-                print("User logged in successfully")
-                self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
-                // display view controller that needs to shown after successful login
-            }
-        }
+  }
+  
+  func loginUser() {
+    let username = usernameTextField.text ?? ""
+    let password = passwordTextField.text ?? ""
+    
+    PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+      if let error = error {
+        print("User log in failed: \(error.localizedDescription)")
+        self.popUpMessage(title: "Failed to log in.", message: error.localizedDescription, confirmation: "OK")
+      } else {
+        print("You're logged in!")
+        self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
+        // display view controller that needs to shown after successful login
+      }
     }
+  }
+  
+  func popUpMessage(title: String, message: String, confirmation: String) {
+    let alertControllerError = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    // create a cancel action
+    let cancelAction = UIAlertAction(title: confirmation, style: .cancel) { (action) in
+      // handle cancel response here. Doing nothing will dismiss the view.
+    }
+    // add the cancel action to the alertController
+    alertControllerError.addAction(cancelAction)
+    present(alertControllerError, animated: true)
+  }
 }
 
