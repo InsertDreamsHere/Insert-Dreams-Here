@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Thin</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -109,7 +104,24 @@
                     <view key="view" contentMode="scaleToFill" id="s55-PT-Uxp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d0F-bs-X8b" customClass="RSKPlaceholderTextView" customModule="RSKPlaceholderTextView">
+                                <rect key="frame" x="8" y="72" width="359" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Hey friend, how'd you dream?"/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wNl-au-J8N" firstAttribute="trailing" secondItem="d0F-bs-X8b" secondAttribute="trailing" constant="8" id="Uju-l5-1pp"/>
+                            <constraint firstItem="wNl-au-J8N" firstAttribute="bottom" secondItem="d0F-bs-X8b" secondAttribute="bottom" constant="8" id="Yib-Sj-B8L"/>
+                            <constraint firstItem="d0F-bs-X8b" firstAttribute="top" secondItem="wNl-au-J8N" secondAttribute="top" constant="8" id="oaV-ci-HYH"/>
+                            <constraint firstItem="d0F-bs-X8b" firstAttribute="leading" secondItem="wNl-au-J8N" secondAttribute="leading" constant="8" id="uTk-hb-iY7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wNl-au-J8N"/>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" id="LOV-Xi-aqR">
@@ -119,15 +131,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dreamBody" destination="d0F-bs-X8b" id="VFq-Ka-SPr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp7-n8-BMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="1532"/>
+            <point key="canvasLocation" x="92" y="1531.4842578710645"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="w9k-yN-C4l">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="oVB-7X-t2a" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="AuthenticatedTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="oVB-7X-t2a" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GHI-Ny-dYu">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
