@@ -23,8 +23,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.server = "http://insert-dreams-here.herokuapp.com/parse"
         }))
     
+    // check if user is logged in.
+    if PFUser.current() != nil {
+      // Load and show the home view controller
+      self.changeViewTo(targetViewController: "AuthenticatedTabBarController") 
+    }
+    
     // Keep a look out for if user clicked "Logout"
     NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
+      print("Logout notification received")
+      self.logOut()
+    }
+    
+    // Keep a look out for if user clicked "Cancel"
+    NotificationCenter.default.addObserver(forName: Notification.Name("didCancel"), object: nil, queue: OperationQueue.main) { (Notification) in
       print("Logout notification received")
       self.logOut()
     }
@@ -32,13 +44,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
+  func changeViewTo(targetViewController: String) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let targetVC = storyboard.instantiateViewController(withIdentifier: targetViewController)
+    self.window?.rootViewController = targetVC
+  }
+  
   func logOut() {
     // Logout the current user
-    print("Successful logout")
+    PFUser.logOutInBackground(block: { (error) in
+      if let error = error {
+        print(error.localizedDescription)
+      } else {
+        print("Successful logout")
+        // Load and show the login view controller
+        self.changeViewTo(targetViewController: "LoginViewController")
+      }
+    })
     // Load and show the login view controller
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-    self.window?.rootViewController = loginViewController
+    
   }
   
   func applicationWillResignActive(_ application: UIApplication) {

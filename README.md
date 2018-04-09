@@ -10,10 +10,11 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can sign up to create a new account using Parse authentication
-- [ ] User can log in and log out of their account
-- [ ] The current signed in user is persisted across app restarts
-- [ ] User can write a title, compose a dream, select a location tag using Google Maps API, and post the dream
+- [x] User can sign up to create a new account using Parse authentication
+- [x] User can log in and log out of their account
+- [x] The current signed in user is persisted across app restarts
+- [x] User can write a title, compose a dream, and post the dream.
+- [ ] User can select a location tag using Google Maps API, and post the dream
 - [ ] User can view the last 20 dreams posted on a Google Map as pins
 - [ ] User can tap on a pin on the map and see details appear in bottom drawer navigation (similar to Google Maps mobile app) Details include title, author, and preview 150 characters of the dream
 - [ ] User can tap on the bottom drawer navigation to view full dream
@@ -50,7 +51,7 @@ Ask artists to draw or animate people’s dreams
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
