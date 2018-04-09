@@ -103,6 +103,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AD7E4FA206C2EB600A6481A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB062CE9204A1B5100357BA3 /* LoginViewController.swift */,
+				DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */,
+				0A4DA4A2204A697600167173 /* MapViewController.swift */,
+				80294455204A207F00FE7A60 /* ProfileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		0AD7E4FB206C2FCE00A6481A /* Custom TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				0A4DA4A0204A28AD00167173 /* MapCell.swift */,
+				80294457204A216600FE7A60 /* DreamCell.swift */,
+			);
+			path = "Custom TableCells";
+			sourceTree = "<group>";
+		};
 		5E5C478451CAE8C593B289A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +171,11 @@
 		DB062CBA204A199300357BA3 /* Insert Dreams Here */ = {
 			isa = PBXGroup;
 			children = (
+				0AD7E4FB206C2FCE00A6481A /* Custom TableCells */,
+				0AD7E4FA206C2EB600A6481A /* View Controllers */,
+				DB062CBB204A199300357BA3 /* AppDelegate.swift */,
+				DB062CBF204A199300357BA3 /* Main.storyboard */,
+				DB062CC2204A199300357BA3 /* Assets.xcassets */,
 				DB2EC37A206F770A001141C1 /* API */,
 				DB2EC379206F76FF001141C1 /* Model */,
 				DB2EC378206F76EF001141C1 /* View */,
