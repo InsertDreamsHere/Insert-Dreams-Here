@@ -109,19 +109,45 @@
                     <view key="view" contentMode="scaleToFill" id="s55-PT-Uxp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d0F-bs-X8b" customClass="RSKPlaceholderTextView" customModule="RSKPlaceholderTextView">
+                                <rect key="frame" x="8" y="72" width="359" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Hey friend, how'd you dream?"/>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wNl-au-J8N" firstAttribute="trailing" secondItem="d0F-bs-X8b" secondAttribute="trailing" constant="8" id="Uju-l5-1pp"/>
+                            <constraint firstItem="wNl-au-J8N" firstAttribute="bottom" secondItem="d0F-bs-X8b" secondAttribute="bottom" constant="8" id="Yib-Sj-B8L"/>
+                            <constraint firstItem="d0F-bs-X8b" firstAttribute="top" secondItem="wNl-au-J8N" secondAttribute="top" constant="8" id="oaV-ci-HYH"/>
+                            <constraint firstItem="d0F-bs-X8b" firstAttribute="leading" secondItem="wNl-au-J8N" secondAttribute="leading" constant="8" id="uTk-hb-iY7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wNl-au-J8N"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Compose" id="LOV-Xi-aqR"/>
+                    <navigationItem key="navigationItem" title="Compose" id="LOV-Xi-aqR">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="Hpe-Ev-KHv">
+                            <connections>
+                                <action selector="onPost:" destination="m9H-bL-B51" id="HVx-kA-MMF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dreamBody" destination="d0F-bs-X8b" id="VFq-Ka-SPr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp7-n8-BMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="1532"/>
+            <point key="canvasLocation" x="92" y="1531.4842578710645"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="w9k-yN-C4l">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="oVB-7X-t2a" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="AuthenticatedTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="oVB-7X-t2a" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GHI-Ny-dYu">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -175,6 +201,7 @@
                                     <constraint firstAttribute="width" secondItem="ivB-Te-Pff" secondAttribute="height" multiplier="125:98" constant="-322.70408163265301" id="OWL-5p-vTW"/>
                                     <constraint firstAttribute="height" constant="547" id="o5A-z6-lRm"/>
                                 </constraints>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MapCell" rowHeight="171" id="od7-4U-gAE" customClass="MapCell" customModule="Insert_Dreams_Here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="171"/>
@@ -217,10 +244,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="8TX-PP-VEo" firstAttribute="leading" secondItem="hzC-2t-TM3" secondAttribute="leading" constant="15" id="226-XA-jDn"/>
                                                 <constraint firstItem="CIM-jw-obv" firstAttribute="leading" secondItem="hzC-2t-TM3" secondAttribute="leadingMargin" id="3Gy-5F-qxz"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZFB-oZ-gaM" secondAttribute="bottom" constant="10" id="5Cn-bz-Tdz"/>
                                                 <constraint firstItem="Ne8-4Z-iMN" firstAttribute="top" secondItem="hzC-2t-TM3" secondAttribute="top" constant="26" id="GFa-Up-KK3"/>
                                                 <constraint firstItem="8TX-PP-VEo" firstAttribute="bottom" secondItem="EwN-ye-LVa" secondAttribute="bottom" id="Hfb-bs-mlr"/>
                                                 <constraint firstItem="ZFB-oZ-gaM" firstAttribute="trailing" secondItem="hzC-2t-TM3" secondAttribute="trailingMargin" constant="-1" id="KQQ-Un-q9U"/>
@@ -254,12 +282,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ivB-Te-Pff" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="1EY-s4-3Pr"/>
+                            <constraint firstItem="p9i-y1-jdb" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" constant="-16" id="5Ov-y3-XgJ"/>
                             <constraint firstItem="9ov-Xy-UKQ" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="8ZM-hf-efc"/>
+                            <constraint firstItem="p9i-y1-jdb" firstAttribute="top" secondItem="cpD-7p-6FQ" secondAttribute="top" constant="9" id="DvP-Kj-3c3"/>
                             <constraint firstItem="9ov-Xy-UKQ" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="Nel-4d-ekP"/>
                             <constraint firstAttribute="bottom" secondItem="ivB-Te-Pff" secondAttribute="bottom" id="U6z-M2-Tjl"/>
                             <constraint firstItem="ivB-Te-Pff" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="W5a-g4-6zD"/>
                             <constraint firstItem="9ov-Xy-UKQ" firstAttribute="bottom" secondItem="cpD-7p-6FQ" secondAttribute="bottom" id="lTf-Sb-C8R"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="top" secondItem="cpD-7p-6FQ" secondAttribute="top" constant="56" id="qdC-RA-EZz"/>
+                            <constraint firstItem="p9i-y1-jdb" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" constant="16" id="ofP-7w-edl"/>
+                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="top" secondItem="cpD-7p-6FQ" secondAttribute="top" id="qdC-RA-EZz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cpD-7p-6FQ"/>
                     </view>
@@ -291,7 +322,7 @@
             </objects>
             <point key="canvasLocation" x="841" y="807"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="Qv8-Fy-cmb">
             <objects>
                 <viewController id="G0S-Qp-Jl1" customClass="ProfileViewController" customModule="Insert_Dreams_Here" customModuleProvider="target" sceneMemberID="viewController">
@@ -315,7 +346,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="243" id="yEL-CT-ELq" customClass="DreamCell" customModule="Insert_Dreams_Here" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DreamCell" rowHeight="243" id="yEL-CT-ELq" customClass="DreamCell" customModule="Insert_Dreams_Here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="243"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yEL-CT-ELq" id="pbC-UL-DdI">
@@ -386,16 +417,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="soq-HE-i4m"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ojs-ag-9q8">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="kOM-ur-49h">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gFZ-Pm-aEu">
-                                <rect key="frame" x="16" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="onEdit:" destination="G0S-Qp-Jl1" eventType="touchUpInside" id="KK6-xD-AAK"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" title="Profile" id="Ojs-ag-9q8">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="GuE-9d-xz7">
+                            <connections>
+                                <action selector="onEdit:" destination="G0S-Qp-Jl1" id="Ouw-5J-qGF"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="pjs-51-EOv">
                             <connections>
@@ -415,11 +441,11 @@
             </objects>
             <point key="canvasLocation" x="1568.8" y="1530.5847076461771"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="ppD-7c-M0Y">
             <objects>
                 <navigationController storyboardIdentifier="ProfileViewController" automaticallyAdjustsScrollViewInsets="NO" id="V3b-M2-S9t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="p15-w8-FS2"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="p15-w8-FS2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NfN-eo-Ba3">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
