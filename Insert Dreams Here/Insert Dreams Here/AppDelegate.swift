@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,12 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    // connect to Parse server
     Parse.initialize(
-        with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
-            configuration.applicationId = "InsertDreamsHere"
-            configuration.clientKey = "ajsdfjoJSDfj234sdf" // set to nil assuming you have not set clientKey
-            configuration.server = "http://insert-dreams-here.herokuapp.com/parse"
-        }))
+      with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+        configuration.applicationId = "InsertDreamsHere"
+        configuration.clientKey = "ajsdfjoJSDfj234sdf" // set to nil assuming you have not set clientKey
+        configuration.server = "http://insert-dreams-here.herokuapp.com/parse"
+      }))
     
     // check if user is logged in.
     if PFUser.current() != nil {
@@ -40,6 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       print("Logout notification received")
       self.logOut()
     }
+    
+    //Jason Henderson's Apple Developer Account
+    //.badge allows the app to display a number on the corner of the app’s icon.
+    //.sound allows the app to play a sound.
+    //.alert allows the app to display text.
+    //.carPlay allows the app to display notifications in a CarPlay environment.
+    registerForPushNotifications()
     
     return true
   }
@@ -65,6 +75,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
   }
   
+  func registerForPushNotifications() {
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+      (granted, error) in
+      print("Permission granted: \(granted)")
+      
+      guard granted else { return }
+      self.getNotificationSettings()
+    }
+  }
+  
+  //Useful if user declines the permissions
+  func getNotificationSettings() {
+    UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+      print("Notification settings: \(settings)")
+      guard settings.authorizationStatus == .authorized else { return }
+      UIApplication.shared.registerForRemoteNotifications()
+    }
+  }
+  
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -87,6 +116,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
   
+  func application(_ application: UIApplication,
+                   didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    let tokenParts = deviceToken.map { data -> String in
+      return String(format: "%02.2hhx", data)
+    }
+    
+    let token = tokenParts.joined()
+    print("Device Token: \(token)")
+  }
   
+  func application(_ application: UIApplication,
+                   didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    print("Failed to register: \(error)")
+  }
 }
 

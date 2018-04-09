@@ -12,10 +12,9 @@ class ComposeViewController: UIViewController {
   
   @IBOutlet weak var dreamBody: UITextView!
   
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.hideKeyboard()
     // Do any additional setup after loading the view.
   }
   
@@ -36,4 +35,21 @@ class ComposeViewController: UIViewController {
     }
   }
   
+}
+
+extension UIViewController
+{
+  func hideKeyboard()
+  {
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+      target: self,
+      action: #selector(UIViewController.dismissKeyboard))
+    
+    view.addGestureRecognizer(tap)
+  }
+  
+  @objc func dismissKeyboard()
+  {
+    view.endEditing(true)
+  }
 }
