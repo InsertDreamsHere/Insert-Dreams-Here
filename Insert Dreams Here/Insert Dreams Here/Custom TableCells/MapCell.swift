@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MapCell: UITableViewCell {
     @IBOutlet weak var dreamTitleLabel: UILabel!
     @IBOutlet weak var dreamContentLabel: UILabel!
@@ -18,6 +19,7 @@ class MapCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
