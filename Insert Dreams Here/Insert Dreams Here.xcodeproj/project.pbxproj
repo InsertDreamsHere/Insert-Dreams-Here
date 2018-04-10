@@ -13,6 +13,7 @@
 		44677E45024E462971F0AA80 /* Pods_Insert_Dreams_HereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */; };
 		80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294455204A207F00FE7A60 /* ProfileViewController.swift */; };
 		80294458204A216600FE7A60 /* DreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294457204A216600FE7A60 /* DreamCell.swift */; };
+		80BD4670207C1CB900DA3D1F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BD466F207C1CB900DA3D1F /* Profile.swift */; };
 		DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBB204A199300357BA3 /* AppDelegate.swift */; };
 		DB062CC1204A199300357BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB062CBF204A199300357BA3 /* Main.storyboard */; };
 		DB062CC3204A199300357BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB062CC2204A199300357BA3 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		637436C6D181561832830E77 /* Pods-Insert Dreams HereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80294455204A207F00FE7A60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		80294457204A216600FE7A60 /* DreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamCell.swift; sourceTree = "<group>"; };
+		80BD466F207C1CB900DA3D1F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		9262B85A230A10B584687066 /* Pods-Insert Dreams HereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_HereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA691EFCF3E92F028B57DFC /* Pods_Insert_Dreams_Here.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_Here.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,7 @@
 			children = (
 				DB2EC37B206F77A1001141C1 /* Dream.swift */,
 				DB2EC37D206F77AF001141C1 /* User.swift */,
+				80BD466F207C1CB900DA3D1F /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,13 +447,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
-				"${BUILT_PRODUCTS_DIR}/RSKPlaceholderTextView/RSKPlaceholderTextView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKPlaceholderTextView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -516,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */,
+				80BD4670207C1CB900DA3D1F /* Profile.swift in Sources */,
 				0A4DA4A1204A28AD00167173 /* MapCell.swift in Sources */,
 				0A4DA4A3204A697600167173 /* MapViewController.swift in Sources */,
 				80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */,
