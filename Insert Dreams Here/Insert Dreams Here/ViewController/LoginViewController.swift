@@ -34,6 +34,17 @@ class LoginViewController: UIViewController {
     @IBAction func onLogIn(_ sender: Any) {
         loginUser()
     }
+    
+    func createProfile(){
+        Profile.createProfile(withLocation: "Monterey", withBio: "bio is empty", withImage: nil, withCompletion: { (success, error) in
+            if success {
+                print("Great new profile!")
+            } else if let e = error as NSError? {
+                print(e.localizedDescription)
+                print("Something went wrong with your profile creation.")
+            }
+        })
+    }
     func registerUser() {
         if (usernameTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
             self.popUpMessage(title: "Whoops!", message: "Username and password cannot be left empty.", confirmation: "OK")
@@ -53,6 +64,7 @@ class LoginViewController: UIViewController {
                     print(error.localizedDescription)
                     self.popUpMessage(title: "Failed to sign up.", message: error.localizedDescription, confirmation: "OK")
                 } else {
+                    self.createProfile()
                     print("Yay, created new user!")
                     self.performSegue(withIdentifier: "AuthenticatedLoginSegue", sender: nil)
                     // manually segue to logged in view
