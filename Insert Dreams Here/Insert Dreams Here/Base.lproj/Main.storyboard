@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -191,16 +190,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9ov-Xy-UKQ">
-                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9ov-Xy-UKQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <tableView clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="171" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ivB-Te-Pff">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ivB-Te-Pff" secondAttribute="height" multiplier="125:98" constant="-322.70408163265301" id="OWL-5p-vTW"/>
-                                    <constraint firstAttribute="height" constant="547" id="o5A-z6-lRm"/>
-                                </constraints>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MapCell" rowHeight="171" id="od7-4U-gAE" customClass="MapCell" customModule="Insert_Dreams_Here" customModuleProvider="target">
@@ -210,7 +206,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="170.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIM-jw-obv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIM-jw-obv">
                                                     <rect key="frame" x="15" y="46" width="345" height="91"/>
                                                     <string key="text">Last night, I dreamt about me flying away to the moon. Then I encountered a space craft from SpaceX and I said hi to the astronounts.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -238,7 +234,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monterey" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFB-oZ-gaM">
-                                                    <rect key="frame" x="305" y="141" width="54" height="15"/>
+                                                    <rect key="frame" x="305" y="141" width="54" height="20"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -273,24 +269,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-GS-fNG">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-GS-fNG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ivB-Te-Pff" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="1EY-s4-3Pr"/>
-                            <constraint firstItem="p9i-y1-jdb" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" constant="-16" id="5Ov-y3-XgJ"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="8ZM-hf-efc"/>
-                            <constraint firstItem="p9i-y1-jdb" firstAttribute="top" secondItem="cpD-7p-6FQ" secondAttribute="top" constant="9" id="DvP-Kj-3c3"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="Nel-4d-ekP"/>
-                            <constraint firstAttribute="bottom" secondItem="ivB-Te-Pff" secondAttribute="bottom" id="U6z-M2-Tjl"/>
-                            <constraint firstItem="ivB-Te-Pff" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="W5a-g4-6zD"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="bottom" secondItem="cpD-7p-6FQ" secondAttribute="bottom" id="lTf-Sb-C8R"/>
-                            <constraint firstItem="p9i-y1-jdb" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" constant="16" id="ofP-7w-edl"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="top" secondItem="cpD-7p-6FQ" secondAttribute="top" id="qdC-RA-EZz"/>
+                            <constraint firstItem="ivB-Te-Pff" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="BWX-4S-W3S"/>
+                            <constraint firstItem="ivB-Te-Pff" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="RjQ-FS-bDG"/>
+                            <constraint firstItem="fc9-GS-fNG" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="YUK-Ez-9Yc"/>
+                            <constraint firstItem="fc9-GS-fNG" firstAttribute="top" secondItem="cpD-7p-6FQ" secondAttribute="top" id="i7P-yB-s6f"/>
+                            <constraint firstItem="ivB-Te-Pff" firstAttribute="top" secondItem="fc9-GS-fNG" secondAttribute="bottom" id="kNS-ju-q6D"/>
+                            <constraint firstAttribute="bottom" secondItem="ivB-Te-Pff" secondAttribute="bottom" id="spT-lm-fGq"/>
+                            <constraint firstItem="fc9-GS-fNG" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="zCA-fj-w6T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cpD-7p-6FQ"/>
                     </view>

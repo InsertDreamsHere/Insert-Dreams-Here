@@ -19,25 +19,16 @@ class MapViewController: UIViewController, UITableViewDataSource {
         mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
         mapTableView.contentOffset = CGPoint(x: 0, y: 1)
         
-        var DreamData = PFQuery(className: "Dream")
-        DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
-                if let objects = objects {
-                    self.Dreams = objects
-                    for dream in self.Dreams {
-                        print(dream["body"])
-                    }
-                    self.mapTableView.reloadData()
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!)")
-            }
-        })
+        
         // Do any additional setup after loading the view.
+        mapTableView.rowHeight = UITableViewAutomaticDimension
+        mapTableView.estimatedRowHeight = 140
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("in view will appear")
+        fetchFromTheDatabase()
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +50,26 @@ class MapViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-
+    func fetchFromTheDatabase() -> Void {
+        var DreamData = PFQuery(className: "Dream")
+        DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    self.Dreams = objects
+                    //                    for dream in self.Dreams {
+                    //                        print(dream["body"])
+                    //                    }
+                    self.mapTableView.reloadData()
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!)")
+            }
+        })
+    }
     /*
     // MARK: - Navigation
 
