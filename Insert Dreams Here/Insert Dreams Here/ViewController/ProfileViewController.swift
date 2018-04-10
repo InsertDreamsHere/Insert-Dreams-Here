@@ -22,6 +22,16 @@ class ProfileViewController: UIViewController {
     
     // Do any additional setup after loading the view.
   }
+    override func viewWillAppear(_ animated: Bool) {
+        Profile.createProfile(withLocation: "Monterey", withBio: "bio is empty", withImage: nil, withCompletion: { (success, error) in
+            if success {
+                print("Great new dream!")
+            } else if let e = error as NSError? {
+                print(e.localizedDescription)
+                print("Something went wrong with your dream post.")
+            }
+        })
+    }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
