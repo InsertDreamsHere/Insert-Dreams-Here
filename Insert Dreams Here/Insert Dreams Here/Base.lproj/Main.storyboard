@@ -289,6 +289,7 @@
                     <navigationItem key="navigationItem" title="Map View" id="rI4-Qf-5YO"/>
                     <connections>
                         <outlet property="mapTableView" destination="ivB-Te-Pff" id="zMM-mb-TZa"/>
+                        <outlet property="mapView" destination="9ov-Xy-UKQ" id="l7l-F6-qew"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCI-n9-q24" userLabel="First Responder" sceneMemberID="firstResponder"/>

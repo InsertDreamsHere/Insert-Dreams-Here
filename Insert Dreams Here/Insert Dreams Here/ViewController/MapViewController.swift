@@ -8,13 +8,30 @@
 
 import UIKit
 import Parse
+import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController, UITableViewDataSource {
+class MapViewController: UIViewController, UITableViewDataSource, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var mapTableView: UITableView!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
     var Dreams: [PFObject] = []
+    let locationManager = CLLocationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Asking user for location service and get user's current location
+        mapView.delegate = self
+        
+        locationManager.delegate = self
+        checkForLocationServices()
+        locationManager.requestLocation()
+        print("location Requested")
+        
+        
+        
+        //Set the tableView's position
         mapTableView.dataSource = self
         mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
         mapTableView.contentOffset = CGPoint(x: 0, y: 1)
@@ -38,8 +55,8 @@ class MapViewController: UIViewController, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Number of Dreams: !@#!@$!@#!@")
-        print(self.Dreams.count)
+        //print("Number of Dreams: !@#!@$!@#!@")
+        //print(self.Dreams.count)
         return Dreams.count
     }
     
@@ -59,9 +76,9 @@ class MapViewController: UIViewController, UITableViewDataSource {
                 // Do something with the found objects
                 if let objects = objects {
                     self.Dreams = objects
-                    //                    for dream in self.Dreams {
-                    //                        print(dream["body"])
-                    //                    }
+//                    for dream in self.Dreams {
+//                        print(dream.objectId!)
+//                    }
                     self.mapTableView.reloadData()
                 }
             } else {
@@ -70,14 +87,31 @@ class MapViewController: UIViewController, UITableViewDataSource {
             }
         })
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func checkForLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            // Location services are available, so query the user’s location.
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+            print("location service is available")
+        } else {
+            // Update your app’s UI to show that the location is unavailable.
+            print("location service is not available")
+        }
     }
-    */
-
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
+            print("Printing user location")
+            print("\(lat),\(long)")
+            let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(lat, long), MKCoordinateSpanMake(0.1, 0.1))
+            mapView.setRegion(sfRegion, animated: false)
+        } else {
+            print("No coordinates")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
 }
