@@ -51,7 +51,14 @@ Ask artists to draw or animate people’s dreams
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/CbAQqxU.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+First, setting up the Parse server to enable user to sign up, login, logout, with input validation and user persistence if app is closed.
+<img src='https://image.ibb.co/kjqw47/milestone1.gif' title='Video Walkthrough' width='500px' alt='Video Walkthrough' />
+
+Then, posting a dream to the map.
+<img src='https://i.imgur.com/CbAQqxU.gif' title='Video Walkthrough' width='500px' alt='Video Walkthrough' />
+
+
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -81,5 +88,3 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-
