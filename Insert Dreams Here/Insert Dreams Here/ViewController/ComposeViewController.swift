@@ -16,7 +16,7 @@ class ComposeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+    self.hideKeyboard()
   }
   
   override func didReceiveMemoryWarning() {
@@ -26,6 +26,7 @@ class ComposeViewController: UIViewController {
   
   @IBAction func onPost(_ sender: Any) {
     print("Clicked share")
+    dreamBody.resignFirstResponder()
     Dream.sendDream(withContent: dreamBody.text) { (success, error) in
       if success {
         print("Great new dream!")
@@ -35,5 +36,23 @@ class ComposeViewController: UIViewController {
       }
     }
   }
+
+}
+
+
+extension UIViewController
+{
+  func hideKeyboard()
+  {
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+      target: self,
+      action: #selector(UIViewController.dismissKeyboard))
+    
+    view.addGestureRecognizer(tap)
+  }
   
+  @objc func dismissKeyboard()
+  {
+    view.endEditing(true)
+  }
 }

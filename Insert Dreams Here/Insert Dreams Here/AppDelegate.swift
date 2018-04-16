@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    // All navigation controllers shall have white status bar
+    UINavigationBar.appearance().barStyle = .blackOpaque
+    
+    // Set up Parse server
     Parse.initialize(
         with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
             configuration.applicationId = "InsertDreamsHere"

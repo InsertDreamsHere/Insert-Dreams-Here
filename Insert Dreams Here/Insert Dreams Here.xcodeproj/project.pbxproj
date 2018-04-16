@@ -695,7 +695,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQ5CM398TH;
+				DEVELOPMENT_TEAM = 9RR37ASP3A;
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.mma.HONY;
@@ -711,7 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PQ5CM398TH;
+				DEVELOPMENT_TEAM = 9RR37ASP3A;
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.mma.HONY;
