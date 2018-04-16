@@ -13,6 +13,8 @@ class MapViewController: UIViewController, UITableViewDataSource {
   @IBOutlet weak var mapTableView: UITableView!
   var Dreams: [PFObject] = []
   
+  @IBOutlet weak var mapSearchBar: UISearchBar!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     mapTableView.dataSource = self
@@ -22,6 +24,9 @@ class MapViewController: UIViewController, UITableViewDataSource {
     mapTableView.rowHeight = UITableViewAutomaticDimension
     mapTableView.estimatedRowHeight = 500
     
+    // fills in the color of map search bar
+    let searchBarBackground = UIColor(red:0.22, green:0.23, blue:0.25, alpha:1.0)
+    mapSearchBar.changeSearchBarColor(color: searchBarBackground)
     var DreamData = PFQuery(className: "Dream")
     DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
       if error == nil {
@@ -40,7 +45,7 @@ class MapViewController: UIViewController, UITableViewDataSource {
         print("Error: \(error!)")
       }
     })
-    // Do any additional setup after loading the view.
+    self.hideKeyboard()
   }
   
   override func didReceiveMemoryWarning() {
@@ -66,4 +71,16 @@ class MapViewController: UIViewController, UITableViewDataSource {
     mapTableView.deselectRow(at: indexPath, animated: true)
   }
   
+}
+
+extension UISearchBar {
+  func changeSearchBarColor(color: UIColor) {
+    UIGraphicsBeginImageContext(self.frame.size)
+    color.setFill()
+    UIBezierPath(rect: self.frame).fill()
+    let bgImage = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+    
+    self.setSearchFieldBackgroundImage(bgImage, for: .normal)
+  }
 }
