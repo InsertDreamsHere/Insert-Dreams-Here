@@ -51,7 +51,14 @@ Ask artists to draw or animate people’s dreams
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+First, setting up the Parse server to enable user to sign up, login, logout, with input validation and user persistence if app is closed.
+<img src='https://image.ibb.co/kjqw47/milestone1.gif' title='Video Walkthrough' width='500px' alt='Video Walkthrough' />
+
+Then, posting a dream to the map.
+<img src='https://i.imgur.com/CbAQqxU.gif' title='Video Walkthrough' width='500px' alt='Video Walkthrough' />
+
+
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -60,7 +67,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
-
+- [Trianglify.io](https://trianglify.io/) - wallpaper generator
+- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+- <div>Icons made by <a href="https://www.flaticon.com/authors/spovv" title="spovv">spovv</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ## Notes
 
@@ -81,5 +90,3 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-

@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     refreshControl.addTarget(self, action: #selector(ProfileViewController.didPullToRefresh(_:)), for: .valueChanged)
     userDreamTable.insertSubview(refreshControl, at: 0)
     
-    
+    getTimelineDreams()
     getUserProfile()
     
   }
@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         print("current user")
         print(PFUser.current()!)
         
-        let ProfileData = PFQuery(className: "Profile")
+        
         let query = PFQuery(className: "Profile")
         query.whereKey("author", equalTo: PFUser.current()!)
         query.includeKey("author.username")
@@ -78,11 +78,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                     // again convert your date to string
                     let myStringafd = formatter.string(from: yourDate!)
                     
+                    let join = "Joined "
                     
                     self.nameLabel.text = PFUser.current()!["username"] as? String
-                    self.dateJoinedLabel.text = myStringafd
-                    self.userLocationLabel.text = self.Profiles[0]["bio"] as? String
-                    self.biogrophyLabel.text = self.Profiles[0]["location"] as? String
+                    self.dateJoinedLabel.text = join + myStringafd
+                    self.userLocationLabel.text = self.Profiles[0]["location"] as? String
+                    self.biogrophyLabel.text = self.Profiles[0]["bio"] as? String
                     
                 }
             } else {

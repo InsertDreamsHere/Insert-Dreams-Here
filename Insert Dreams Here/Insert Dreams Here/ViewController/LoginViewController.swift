@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboard()
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,5 +99,21 @@ class LoginViewController: UIViewController {
         alertControllerError.addAction(cancelAction)
         present(alertControllerError, animated: true)
     }
+
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+}
+
+extension UITextField{
+  @IBInspectable var placeHolderColor: UIColor? {
+    get {
+      return self.placeHolderColor
+    }
+    set {
+      self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: newValue!])
+    }
+  }
 }
 
