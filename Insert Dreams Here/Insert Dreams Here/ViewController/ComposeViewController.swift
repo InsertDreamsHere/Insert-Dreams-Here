@@ -11,6 +11,7 @@ import UIKit
 class ComposeViewController: UIViewController {
   
   @IBOutlet weak var dreamBody: UITextView!
+  @IBOutlet weak var dreamTitle: UITextView!
   
   
   override func viewDidLoad() {
@@ -27,7 +28,7 @@ class ComposeViewController: UIViewController {
   @IBAction func onPost(_ sender: Any) {
     print("Clicked share")
     dreamBody.resignFirstResponder()
-    Dream.sendDream(withContent: dreamBody.text) { (success, error) in
+    Dream.sendDream(withContent: dreamBody.text, title: dreamTitle.text) { (success, error) in
       if success {
         print("Great new dream!")
       } else if let e = error as NSError? {
