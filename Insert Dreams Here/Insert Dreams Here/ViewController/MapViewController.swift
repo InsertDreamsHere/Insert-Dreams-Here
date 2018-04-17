@@ -10,11 +10,12 @@ import UIKit
 import Parse
 
 class MapViewController: UIViewController, UITableViewDataSource {
+    
   @IBOutlet weak var mapTableView: UITableView!
   var Dreams: [PFObject] = []
-  
+
   @IBOutlet weak var mapSearchBar: UISearchBar!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     mapTableView.dataSource = self
@@ -47,30 +48,31 @@ class MapViewController: UIViewController, UITableViewDataSource {
     })
     self.hideKeyboard()
   }
-  
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
-  
+
+
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     print("Number of Dreams: !@#!@$!@#!@")
     print(self.Dreams.count)
     return Dreams.count
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = mapTableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as! MapCell
     let Dream = Dreams[indexPath.row]
     cell.dreamContentLabel.text = Dream["body"] as? String
     return cell
   }
-  
+
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     mapTableView.deselectRow(at: indexPath, animated: true)
   }
-  
+
 }
 
 extension UISearchBar {

@@ -10,6 +10,12 @@ DEPENDENCIES:
   - Parse
   - RSKPlaceholderTextView
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Bolts
+    - Parse
+    - RSKPlaceholderTextView
+
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
@@ -17,4 +23,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 4a4139c3314ac4593567bc57d36feae5f3fdaf5a
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
