@@ -632,6 +632,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="authorLabel" destination="brk-Tx-Daz" id="NAF-Qv-g0i"/>
                                             <outlet property="bodyLabel" destination="Ril-j1-HLs" id="iVg-5M-FPJ"/>
                                             <outlet property="dateLabel" destination="sWF-uM-vEQ" id="eE7-dO-Sln"/>
                                             <outlet property="locationLabel" destination="xMb-Kk-anl" id="kw8-TY-0bX"/>

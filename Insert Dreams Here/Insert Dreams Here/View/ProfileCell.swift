@@ -13,6 +13,7 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -148,6 +148,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         let myStringafd = formatter.string(from: yourDate!)
         
         cell.dateLabel.text =  myStringafd
+        //print("Dream title")
+        //print(Dream["title"] as? String)
+        if(Dream["title"] as? String == nil) {
+            cell.titleLabel.text = "No Title"
+        } else {
+            cell.titleLabel.text = Dream["title"] as? String
+        }
+        
+        let username = PFUser.current()!.username as! String
+        cell.authorLabel.text = "by " + username
         return cell
     }
     
