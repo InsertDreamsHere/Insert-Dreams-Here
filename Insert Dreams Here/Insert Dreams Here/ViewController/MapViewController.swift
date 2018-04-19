@@ -10,17 +10,24 @@ import UIKit
 import Parse
 import MapKit
 
-
 class MapViewController: UIViewController, UITableViewDataSource, CLLocationManagerDelegate, MKMapViewDelegate {
-    @IBOutlet weak var mapTableView: UITableView!
 
     @IBOutlet weak var mapView: MKMapView!
-
+    @IBOutlet weak var mapTableView: UITableView!
     var Dreams: [PFObject] = []
     let locationManager = CLLocationManager()
 
+    @IBOutlet weak var mapSearchBar: UISearchBar!
+
     override func viewDidLoad() {
-        super.viewDidLoad()
+      super.viewDidLoad()
+      mapTableView.dataSource = self
+      mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
+      mapTableView.contentOffset = CGPoint(x: 0, y: 1)
+
+      mapTableView.rowHeight = UITableViewAutomaticDimension
+      mapTableView.estimatedRowHeight = 500
+
         //Asking user for location service and get user's current location
         mapView.delegate = self
 
@@ -29,46 +36,50 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         locationManager.requestLocation()
         print("location Requested")
 
-
-
-        //Set the tableView's position
-        mapTableView.dataSource = self
-        mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
-        mapTableView.contentOffset = CGPoint(x: 0, y: 1)
-
-
-        // Do any additional setup after loading the view.
-        mapTableView.rowHeight = UITableViewAutomaticDimension
-        mapTableView.estimatedRowHeight = 140
+      fetchFromTheDatabase(tableName: "Dream")
+      // fills in the color of map search bar
+      let searchBarBackground = UIColor(red:0.22, green:0.23, blue:0.25, alpha:1.0)
+      mapSearchBar.changeSearchBarColor(color: searchBarBackground)
+      self.hideKeyboard()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("in view will appear")
-        fetchFromTheDatabase()
-    }
+
+      override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          print("in view will appear")
+          fetchFromTheDatabase(tableName: "Dream")
+      }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
     }
+
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print("Number of Dreams: !@#!@$!@#!@")
-        //print(self.Dreams.count)
-        return Dreams.count
+//      print("Number of Dreams: !@#!@$!@#!@")
+//      print(self.Dreams.count)
+      return Dreams.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = mapTableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as! MapCell
-        let Dream = Dreams[indexPath.row]
-        cell.dreamContentLabel.text = Dream["body"] as? String
-        return cell
+      let cell = mapTableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as! MapCell
+      let Dream = Dreams[indexPath.row]
+      cell.dreamContentLabel.text = Dream["body"] as? String
+      cell.dreamTitleLabel.text = (Dream["title"] as? String) ?? "No title"
+      //cell.postLocationLabel.text = Dream["paint"]
+      cell.postDateLabel.text = Dream["_created_at"] as? String
+      //cell.userImage
+      return cell
     }
 
-    func fetchFromTheDatabase() -> Void {
-        var DreamData = PFQuery(className: "Dream")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      mapTableView.deselectRow(at: indexPath, animated: true)
+    }
+    func fetchFromTheDatabase(tableName Str: String) {
+        let DreamData = PFQuery(className: "\(Str)")
+        DreamData.order(byDescending: "_updated_at")
         DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 // The find succeeded.
@@ -77,7 +88,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
                 if let objects = objects {
                     self.Dreams = objects
 //                    for dream in self.Dreams {
-//                        print(dream.objectId!)
+//                        print(dream.updatedAt!)
 //                    }
                     self.mapTableView.reloadData()
                 }
@@ -114,4 +125,16 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
+
+}
+
+extension UISearchBar {
+  func changeSearchBarColor(color: UIColor) {
+    UIGraphicsBeginImageContext(self.frame.size)
+    color.setFill()
+    UIBezierPath(rect: self.frame).fill()
+    let bgImage = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+    self.setSearchFieldBackgroundImage(bgImage, for: .normal)
+  }
 }
