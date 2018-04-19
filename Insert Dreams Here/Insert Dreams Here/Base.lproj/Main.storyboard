@@ -210,17 +210,30 @@
                                 <rect key="frame" x="16" y="169" width="343" height="72"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="California, USA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q15-wy-VYa">
-                                        <rect key="frame" x="18" y="25" width="129.5" height="23"/>
+                                        <rect key="frame" x="18" y="25" width="309" height="23"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                         <color key="textColor" red="0.81176470590000005" green="0.70980392160000005" blue="0.23137254900000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGF-nJ-ylC">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
+                                        <color key="backgroundColor" red="0.17254901959999999" green="0.25882352939999997" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Select Location"/>
+                                        <connections>
+                                            <action selector="onTapSelectLocationButton:" destination="m9H-bL-B51" eventType="touchUpInside" id="rMv-ih-h19"/>
+                                            <segue destination="Zf8-LH-TEF" kind="presentation" identifier="tagSegue" id="2vR-yg-7U9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.2156862745" green="0.23137254900000001" blue="0.25490196079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MGF-nJ-ylC" secondAttribute="trailing" id="3gW-nO-ivI"/>
                                     <constraint firstItem="Q15-wy-VYa" firstAttribute="leading" secondItem="S5a-XN-6L0" secondAttribute="leading" constant="18" id="8tq-Fd-mUt"/>
+                                    <constraint firstItem="MGF-nJ-ylC" firstAttribute="top" secondItem="S5a-XN-6L0" secondAttribute="top" id="9Z9-o8-FoV"/>
                                     <constraint firstItem="Q15-wy-VYa" firstAttribute="centerY" secondItem="S5a-XN-6L0" secondAttribute="centerY" id="FOH-Nl-SCT"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Q15-wy-VYa" secondAttribute="trailing" constant="16" id="IpK-2x-KGs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q15-wy-VYa" secondAttribute="trailing" constant="16" id="IpK-2x-KGs"/>
+                                    <constraint firstAttribute="bottom" secondItem="MGF-nJ-ylC" secondAttribute="bottom" id="Sq4-QZ-3De"/>
+                                    <constraint firstItem="MGF-nJ-ylC" firstAttribute="leading" secondItem="S5a-XN-6L0" secondAttribute="leading" id="niT-XF-sKS"/>
                                     <constraint firstAttribute="height" constant="72" id="uNi-3h-y6d"/>
                                 </constraints>
                             </view>
@@ -237,11 +250,10 @@
                         <constraints>
                             <constraint firstItem="Phy-Di-1t6" firstAttribute="leading" secondItem="dY8-s3-XYH" secondAttribute="leading" constant="16" id="6nF-cS-3N6"/>
                             <constraint firstItem="S5a-XN-6L0" firstAttribute="top" secondItem="tEh-MD-8Dr" secondAttribute="bottom" constant="8" id="8WO-bk-QjK"/>
-                            <constraint firstAttribute="trailing" secondItem="age-ok-FgG" secondAttribute="trailing" constant="16" id="C7Z-0b-2DZ"/>
+                            <constraint firstAttribute="trailing" secondItem="age-ok-FgG" secondAttribute="trailing" constant="16" id="DT3-vo-9Zp"/>
                             <constraint firstItem="tEh-MD-8Dr" firstAttribute="leading" secondItem="dY8-s3-XYH" secondAttribute="leading" id="Dgc-v5-e5S"/>
                             <constraint firstItem="dY8-s3-XYH" firstAttribute="top" secondItem="wNl-au-J8N" secondAttribute="top" constant="16" id="IBk-lG-SSO"/>
                             <constraint firstItem="wNl-au-J8N" firstAttribute="bottom" secondItem="0Ar-oQ-hUy" secondAttribute="bottom" constant="16" id="KpM-d2-jtc"/>
-                            <constraint firstItem="age-ok-FgG" firstAttribute="leading" secondItem="s55-PT-Uxp" secondAttribute="leading" constant="16" id="NM5-fy-T2o"/>
                             <constraint firstItem="wNl-au-J8N" firstAttribute="trailing" secondItem="dY8-s3-XYH" secondAttribute="trailing" constant="16" id="Off-CE-pYi"/>
                             <constraint firstItem="tEh-MD-8Dr" firstAttribute="trailing" secondItem="dY8-s3-XYH" secondAttribute="trailing" id="PdY-ba-ycN"/>
                             <constraint firstItem="S5a-XN-6L0" firstAttribute="leading" secondItem="wNl-au-J8N" secondAttribute="leading" constant="16" id="Pmd-f4-TU1"/>
@@ -255,6 +267,7 @@
                             <constraint firstItem="0Ar-oQ-hUy" firstAttribute="top" secondItem="age-ok-FgG" secondAttribute="bottom" constant="8" id="hgu-Od-Mwd"/>
                             <constraint firstItem="age-ok-FgG" firstAttribute="top" secondItem="S5a-XN-6L0" secondAttribute="bottom" constant="8" id="kJP-Rb-s8x"/>
                             <constraint firstItem="Phy-Di-1t6" firstAttribute="top" secondItem="dY8-s3-XYH" secondAttribute="top" constant="16" id="lrq-S8-Ncp"/>
+                            <constraint firstItem="age-ok-FgG" firstAttribute="leading" secondItem="s55-PT-Uxp" secondAttribute="leading" constant="16" id="tCG-me-nGS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wNl-au-J8N"/>
                     </view>
@@ -278,7 +291,7 @@
         <!--View Controller-->
         <scene sceneID="URA-gC-DWX">
             <objects>
-                <viewController id="Zf8-LH-TEF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationsViewController" id="Zf8-LH-TEF" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BnO-qz-2DV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,11 +360,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="PZd-Xh-gnH" firstAttribute="top" secondItem="xW7-1B-9Nd" secondAttribute="top" id="Ajl-bF-zFi"/>
                                     <constraint firstAttribute="trailing" secondItem="PZd-Xh-gnH" secondAttribute="trailing" id="gZP-pz-E6L"/>
                                     <constraint firstItem="PZd-Xh-gnH" firstAttribute="leading" secondItem="xW7-1B-9Nd" secondAttribute="leading" id="nyg-oB-jqi"/>
-                                    <constraint firstItem="PZd-Xh-gnH" firstAttribute="top" secondItem="xW7-1B-9Nd" secondAttribute="top" id="oKA-GM-9HU"/>
                                     <constraint firstAttribute="bottom" secondItem="PZd-Xh-gnH" secondAttribute="bottom" id="xgG-fc-0gX"/>
-                                    <constraint firstItem="PZd-Xh-gnH" firstAttribute="top" secondItem="xW7-1B-9Nd" secondAttribute="top" id="yh9-9l-AoZ"/>
                                 </constraints>
                             </view>
                         </subviews>

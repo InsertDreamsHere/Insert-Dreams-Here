@@ -1,5 +1,12 @@
 PODS:
   - Bolts/Tasks (1.9.0)
+  - GoogleMaps (2.6.0):
+    - GoogleMaps/Maps (= 2.6.0)
+  - GoogleMaps/Base (2.6.0)
+  - GoogleMaps/Maps (2.6.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.6.0):
+    - GoogleMaps/Base (= 2.6.0)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
@@ -7,14 +14,18 @@ PODS:
   - RSKPlaceholderTextView (3.0.0)
 
 DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlaces
   - Parse
   - RSKPlaceholderTextView
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
+  GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   RSKPlaceholderTextView: 0ce73a19998e236323b3f1f16bf4a4e4a76c2c28
 
-PODFILE CHECKSUM: 4a4139c3314ac4593567bc57d36feae5f3fdaf5a
+PODFILE CHECKSUM: 589055f1bbcc49b79f10923c9bf92b60b66c1337
 
 COCOAPODS: 1.4.0

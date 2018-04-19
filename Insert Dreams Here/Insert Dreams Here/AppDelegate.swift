@@ -8,14 +8,18 @@
 
 import UIKit
 import Parse
+import GooglePlaces
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    GMSPlacesClient.provideAPIKey("AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68")
+    GMSServices.provideAPIKey("AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68")
     
     // All navigation controllers shall have white status bar
     UINavigationBar.appearance().barStyle = .blackOpaque
