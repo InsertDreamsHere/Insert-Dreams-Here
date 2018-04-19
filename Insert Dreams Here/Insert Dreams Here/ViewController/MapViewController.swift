@@ -27,7 +27,7 @@ class MapViewController: UIViewController, UITableViewDataSource {
     // fills in the color of map search bar
     let searchBarBackground = UIColor(red:0.22, green:0.23, blue:0.25, alpha:1.0)
     mapSearchBar.changeSearchBarColor(color: searchBarBackground)
-    var DreamData = PFQuery(className: "Dream")
+    let DreamData = PFQuery(className: "Dream")
     DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
       if error == nil {
         // The find succeeded.
