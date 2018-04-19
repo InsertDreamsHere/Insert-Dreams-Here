@@ -8,14 +8,6 @@
     <string>Always use location</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>When in use app</string>
-<<<<<<< HEAD
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-=======
->>>>>>> master
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
