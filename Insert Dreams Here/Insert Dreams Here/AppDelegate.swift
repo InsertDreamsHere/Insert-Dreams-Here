@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,7 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       print("Logout notification received")
       self.logOut()
     }
-    
+    // Google Map API
+    GMSServices.provideAPIKey("AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68")
+    GMSPlacesClient.provideAPIKey("AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68")
     return true
   }
   

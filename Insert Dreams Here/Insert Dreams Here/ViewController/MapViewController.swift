@@ -9,57 +9,80 @@
 import UIKit
 import Parse
 import MapKit
+import GoogleMaps
 
-class MapViewController: UIViewController, UITableViewDataSource, CLLocationManagerDelegate, MKMapViewDelegate {
 
-    @IBOutlet weak var mapView: MKMapView!
+class MapViewController: UIViewController, UITableViewDataSource {
+
+//    override func loadView() {
+//        super.loadView()
+//    }
+
     @IBOutlet weak var mapTableView: UITableView!
     var Dreams: [PFObject] = []
-    let locationManager = CLLocationManager()
-
+//    let locationManager = CLLocationManager()
+//
+//    let googleMapAPIKey = "AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68"
     @IBOutlet weak var mapSearchBar: UISearchBar!
-
+//
     override func viewDidLoad() {
       super.viewDidLoad()
+        // tableView
+        let width = UIScreen.main.bounds.width
+        let camera = GMSCameraPosition.camera(withLatitude: 1.285, longitude: 103.848, zoom: 12)
+        let mapView = GMSMapView.map(withFrame: CGRect(x:0, y:-600, width: width, height:520), camera: camera)//x:0, y:10, width:20, height:20
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+
+        print("ViewDidLoaded!")
       mapTableView.dataSource = self
       mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
       mapTableView.contentOffset = CGPoint(x: 0, y: 1)
 
       mapTableView.rowHeight = UITableViewAutomaticDimension
       mapTableView.estimatedRowHeight = 500
-
-        //Asking user for location service and get user's current location
-        mapView.delegate = self
-
-        locationManager.delegate = self
-        checkForLocationServices()
-        locationManager.requestLocation()
-        print("location Requested")
-
+//
+//        //Asking user for location service and get user's current location
+//        mapView.delegate = self
+//
+//        locationManager.delegate = self
+//        checkForLocationServices()
+//        //locationManager.requestLocation()
+//        print("location Requested")
+//
       fetchFromTheDatabase(tableName: "Dream")
       // fills in the color of map search bar
       let searchBarBackground = UIColor(red:0.22, green:0.23, blue:0.25, alpha:1.0)
       mapSearchBar.changeSearchBarColor(color: searchBarBackground)
       self.hideKeyboard()
+        mapTableView.addSubview(mapView)
     }
-
-
+//
+//
       override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
           print("in view will appear")
           fetchFromTheDatabase(tableName: "Dream")
       }
-
+//
     override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
     }
-
-
-
+//
+//
+//
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//      print("Number of Dreams: !@#!@$!@#!@")
-//      print(self.Dreams.count)
+      print("Number of Dreams: !@#!@$!@#!@")
+      print(self.Dreams.count)
       return Dreams.count
     }
 
@@ -73,7 +96,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
       //cell.userImage
       return cell
     }
-
+//
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       mapTableView.deselectRow(at: indexPath, animated: true)
     }
@@ -87,9 +110,9 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
                 // Do something with the found objects
                 if let objects = objects {
                     self.Dreams = objects
-//                    for dream in self.Dreams {
-//                        print(dream.updatedAt!)
-//                    }
+                    for dream in self.Dreams {
+                        print(dream.updatedAt!)
+                    }
                     self.mapTableView.reloadData()
                 }
             } else {
@@ -98,36 +121,35 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
             }
         })
     }
-
-    func checkForLocationServices() {
-        if CLLocationManager.locationServicesEnabled() {
-            // Location services are available, so query the user’s location.
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
-            print("location service is available")
-        } else {
-            // Update your app’s UI to show that the location is unavailable.
-            print("location service is not available")
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
-            print("Printing user location")
-            print("\(lat),\(long)")
-            let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(lat, long), MKCoordinateSpanMake(0.1, 0.1))
-            mapView.setRegion(sfRegion, animated: false)
-        } else {
-            print("No coordinates")
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-
+//
+//    func checkForLocationServices() {
+//        if CLLocationManager.locationServicesEnabled() {
+//            // Location services are available, so query the user’s location.
+//            locationManager.requestAlwaysAuthorization()
+//            locationManager.startUpdatingLocation()
+//            print("location service is available")
+//        } else {
+//            // Update your app’s UI to show that the location is unavailable.
+//            print("location service is not available")
+//        }
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
+//            print("Printing user location")
+//            print("\(lat),\(long)")
+//            let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(lat, long), MKCoordinateSpanMake(0.1, 0.1))
+//            mapView.setRegion(sfRegion, animated: false)
+//        } else {
+//            print("No coordinates")
+//        }
+//    }
+//
+//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+//        print(error)
+//    }
+//
 }
-
 extension UISearchBar {
   func changeSearchBarColor(color: UIColor) {
     UIGraphicsBeginImageContext(self.frame.size)

@@ -305,9 +305,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9ov-Xy-UKQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                            </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="199" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ivB-Te-Pff">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -411,15 +408,11 @@
                                 </userDefinedRuntimeAttributes>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.90004761450000004" blue="0.18427719719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fc9-GS-fNG" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="0Wd-wm-36D"/>
                             <constraint firstItem="fc9-GS-fNG" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="8TX-QU-Cu6"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="top" secondItem="cpD-7p-6FQ" secondAttribute="top" id="BnI-OV-OQO"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="Bvv-Dc-SXt"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="bottom" secondItem="cpD-7p-6FQ" secondAttribute="bottom" id="EFZ-ng-Ss8"/>
-                            <constraint firstItem="9ov-Xy-UKQ" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="Kd6-Qo-gIG"/>
                             <constraint firstAttribute="bottom" secondItem="ivB-Te-Pff" secondAttribute="bottom" id="Xfm-bM-Wrq"/>
                             <constraint firstItem="ivB-Te-Pff" firstAttribute="trailing" secondItem="cpD-7p-6FQ" secondAttribute="trailing" id="ipI-b8-nuL"/>
                             <constraint firstItem="ivB-Te-Pff" firstAttribute="leading" secondItem="cpD-7p-6FQ" secondAttribute="leading" id="jNH-ct-CbM"/>
@@ -436,7 +429,6 @@
                     <connections>
                         <outlet property="mapSearchBar" destination="fc9-GS-fNG" id="HSC-cH-xzj"/>
                         <outlet property="mapTableView" destination="ivB-Te-Pff" id="zMM-mb-TZa"/>
-                        <outlet property="mapView" destination="9ov-Xy-UKQ" id="hFg-yZ-NbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCI-n9-q24" userLabel="First Responder" sceneMemberID="firstResponder"/>
