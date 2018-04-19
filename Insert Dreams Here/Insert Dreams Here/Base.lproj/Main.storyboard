@@ -435,6 +435,7 @@
                     <connections>
                         <outlet property="mapSearchBar" destination="fc9-GS-fNG" id="HSC-cH-xzj"/>
                         <outlet property="mapTableView" destination="ivB-Te-Pff" id="zMM-mb-TZa"/>
+                        <outlet property="mapView" destination="9ov-Xy-UKQ" id="hFg-yZ-NbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCI-n9-q24" userLabel="First Responder" sceneMemberID="firstResponder"/>
