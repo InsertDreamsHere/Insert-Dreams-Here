@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A4DA4A1204A28AD00167173 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DA4A0204A28AD00167173 /* MapCell.swift */; };
 		0A4DA4A3204A697600167173 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4DA4A2204A697600167173 /* MapViewController.swift */; };
+		0A8BE4C120897B7B001B2B4B /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A8BE4C020897B7B001B2B4B /* style.json */; };
 		22FEF640EA0B80EA0A68AE0B /* Pods_Insert_Dreams_Here.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA691EFCF3E92F028B57DFC /* Pods_Insert_Dreams_Here.framework */; };
 		44677E45024E462971F0AA80 /* Pods_Insert_Dreams_HereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */; };
 		80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294455204A207F00FE7A60 /* ProfileViewController.swift */; };
@@ -48,6 +49,7 @@
 		019599D3F9ED8B7E453D28EA /* Pods_Insert_Dreams_HereUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_HereUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4DA4A0204A28AD00167173 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		0A4DA4A2204A697600167173 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0A8BE4C020897B7B001B2B4B /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		2403FBCE0F1C82112AC14603 /* Pods-Insert Dreams Here.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams Here.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here.release.xcconfig"; sourceTree = "<group>"; };
 		637436C6D181561832830E77 /* Pods-Insert Dreams HereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80294455204A207F00FE7A60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -153,7 +155,6 @@
 		DB062CBA204A199300357BA3 /* Insert Dreams Here */ = {
 			isa = PBXGroup;
 			children = (
-				DB2EC37A206F770A001141C1 /* API */,
 				DB2EC379206F76FF001141C1 /* Model */,
 				DB2EC378206F76EF001141C1 /* View */,
 				DB2EC377206F76DD001141C1 /* ViewController */,
@@ -207,18 +208,12 @@
 		DB2EC379206F76FF001141C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0A8BE4C020897B7B001B2B4B /* style.json */,
 				DB2EC37B206F77A1001141C1 /* Dream.swift */,
 				DB2EC37D206F77AF001141C1 /* User.swift */,
 				80BD466F207C1CB900DA3D1F /* Profile.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		DB2EC37A206F770A001141C1 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +228,7 @@
 				DB062CB5204A199300357BA3 /* Frameworks */,
 				DB062CB6204A199300357BA3 /* Resources */,
 				84063DD241135E6D1D3673E4 /* [CP] Embed Pods Frameworks */,
+				505F9EEC8F46CB4F949FB288 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,6 +331,7 @@
 				DB062CC6204A199300357BA3 /* LaunchScreen.storyboard in Resources */,
 				DB062CC3204A199300357BA3 /* Assets.xcassets in Resources */,
 				DB062CC1204A199300357BA3 /* Main.storyboard in Resources */,
+				0A8BE4C120897B7B001B2B4B /* style.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +352,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		505F9EEC8F46CB4F949FB288 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		68BC0149D29B1F44F49C989A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
