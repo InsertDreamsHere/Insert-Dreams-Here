@@ -29,8 +29,9 @@ class MapViewController: UIViewController, UITableViewDataSource {
       super.viewDidLoad()
         // tableView
         let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height*0.7
         let camera = GMSCameraPosition.camera(withLatitude: 1.285, longitude: 103.848, zoom: 12)
-        let mapView = GMSMapView.map(withFrame: CGRect(x:0, y:-600, width: width, height:520), camera: camera)//x:0, y:10, width:20, height:20
+        let mapView = GMSMapView.map(withFrame: CGRect(x:0, y:-600, width: width, height:height), camera: camera)
         do {
             // Set the map style by passing the URL of the local file.
             if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
