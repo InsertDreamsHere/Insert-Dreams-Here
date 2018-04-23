@@ -40,6 +40,7 @@ class ComposeViewController: UIViewController {
         print("Pick Place error: \(error.localizedDescription)")
         return
       }
+      self.flagImage.image = #imageLiteral(resourceName: "placeholder")
       self.locationLabel.text = "No current place"
       if let placeLikelihoodList = placeLikelihoodList {
         let place = placeLikelihoodList.likelihoods.first?.place
@@ -63,6 +64,7 @@ class ComposeViewController: UIViewController {
         print("Pick Place error: \(error.localizedDescription)")
         return
       }
+      self.flagImage.image = #imageLiteral(resourceName: "placeholder")
       self.locationLabel.text = "No current place picked"
       if let place = place {
         self.updateLocationLabel(myPlace: place)
