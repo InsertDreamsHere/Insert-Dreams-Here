@@ -18,7 +18,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     var locationManager = CLLocationManager()
     var mapView: GMSMapView!
     var zoomLevel: Float = 10.0
-    
+
     @IBOutlet weak var mapTableView: UITableView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         locationManager.distanceFilter = 50
         locationManager.delegate = self
         checkForLocationServices()
-        
+
         // tableView
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height*0.7

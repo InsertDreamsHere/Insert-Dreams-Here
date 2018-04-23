@@ -24,6 +24,10 @@ class ComposeViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  @IBAction func onTapSelectLocationButton(_ sender: Any) {
+    self.performSegue(withIdentifier: "tagSegue", sender: nil)
+  }
+
   @IBAction func onPost(_ sender: Any) {
     print("Clicked share")
     dreamBody.resignFirstResponder()
