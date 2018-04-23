@@ -8,14 +8,16 @@
 
 import UIKit
 import GooglePlaces
+import GooglePlacePicker
 import FlagKit
 
 class ComposeViewController: UIViewController {
-
+  
   @IBOutlet weak var dreamBody: UITextView!
   @IBOutlet weak var dreamTitle: UITextView!
   @IBOutlet weak var selectLocationButton: UIButton!
   
+  @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var roundFlagImage: UIImageView!
   @IBOutlet weak var flagImage: UIImageView!
   var placesClient: GMSPlacesClient!
@@ -23,50 +25,59 @@ class ComposeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     placesClient = GMSPlacesClient.shared()
+    setDefaultLocation()
     self.hideKeyboard()
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
-  @IBAction func onTapSelectLocationButton(_ sender: Any) {
-    //self.performSegue(withIdentifier: "tagSegue", sender: nil)
+  
+  func setDefaultLocation() {
     placesClient.currentPlace { (placeLikelihoodList, error) in
       if let error = error {
         print("Pick Place error: \(error.localizedDescription)")
         return
       }
-      self.selectLocationButton.setTitle("No current place", for: .normal)
+      self.locationLabel.text = "No current place"
       if let placeLikelihoodList = placeLikelihoodList {
         let place = placeLikelihoodList.likelihoods.first?.place
         if let place = place {
-          let city = self.getAddressComponent(ofType: "locality", addrComponents: place.addressComponents!)
-          
-          let state = self.getAddressComponent(ofType: "administrative_area_level_1", addrComponents: place.addressComponents!)
-          
-          let country = self.getAddressComponent(ofType: "country", addrComponents: place.addressComponents!)
-          
-
-          self.setFlag(countryName: country)
-          
-          let location = city + ", " + state + ", " + country
-          self.selectLocationButton.setTitle(location, for: .normal)
+          self.updateLocationLabel(myPlace: place)
         }
       }
     }
   }
   
-  func setFlag(countryName: String) {
-    let shortCode = locale(for: countryName)
-    let flag = Flag(countryCode: shortCode)!
+  @IBAction func onTapSelectLocationButton(_ sender: Any) {
+    let center = CLLocationCoordinate2D(latitude: 37.788204, longitude: -122.411937)
+    let northEast = CLLocationCoordinate2D(latitude: center.latitude + 0.001, longitude: center.longitude + 0.001)
+    let southWest = CLLocationCoordinate2D(latitude: center.latitude - 0.001, longitude: center.longitude - 0.001)
+    let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+    let config = GMSPlacePickerConfig(viewport: viewport)
+    let placePicker = GMSPlacePicker(config: config)
     
-    // Retrieve the unstyled image for customized use
-    self.flagImage.image = flag.originalImage
-    
-    // Or retrieve a styled flag
-    self.roundFlagImage.image = flag.image(style: .circle)
+    placePicker.pickPlace(callback: {(place, error) -> Void in
+      if let error = error {
+        print("Pick Place error: \(error.localizedDescription)")
+        return
+      }
+      self.locationLabel.text = "No current place picked"
+      if let place = place {
+        self.updateLocationLabel(myPlace: place)
+      }
+      
+    })
+  }
+  
+  func updateLocationLabel(myPlace: GMSPlace) {
+    let city = self.getAddressComponent(ofType: "locality", addrComponents: myPlace.addressComponents!)
+    let state = self.getAddressComponent(ofType: "administrative_area_level_1", addrComponents: myPlace.addressComponents!)
+    let country = self.getAddressComponent(ofType: "country", addrComponents: myPlace.addressComponents!)
+    self.setFlag(countryName: country)
+    let location = city + ", " + state + ", " + country
+    self.locationLabel.text = location
   }
   
   func getAddressComponent(ofType partOfAddress: String, addrComponents: [GMSAddressComponent]) -> String {
@@ -77,6 +88,19 @@ class ComposeViewController: UIViewController {
       }
     }
     return part
+  }
+  
+  func setFlag(countryName: String) {
+    let shortCode = locale(for: countryName)
+    let flag = Flag(countryCode: shortCode)
+    
+    if let flag = flag {
+      //self.flagImage.image = flag.originalImage
+      self.flagImage.image = flag.image(style: .circle)
+    }
+    else {
+      self.flagImage.image = #imageLiteral(resourceName: "placeholder")
+    }
   }
   
   //https://stackoverflow.com/questions/12671829/get-country-code-from-country-name-in-ios
@@ -91,7 +115,7 @@ class ComposeViewController: UIViewController {
     }
     return locales
   }
-
+  
   @IBAction func onPost(_ sender: Any) {
     print("Clicked share")
     dreamBody.resignFirstResponder()
@@ -104,7 +128,7 @@ class ComposeViewController: UIViewController {
       }
     }
   }
-
+  
 }
 
 extension UIViewController
@@ -114,10 +138,10 @@ extension UIViewController
     let tap: UITapGestureRecognizer = UITapGestureRecognizer(
       target: self,
       action: #selector(UIViewController.dismissKeyboard))
-
+    
     view.addGestureRecognizer(tap)
   }
-
+  
   @objc func dismissKeyboard()
   {
     view.endEditing(true)

@@ -25,9 +25,9 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
       super.viewDidLoad()
         //Location Manager
         locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy =  kCLLocationAccuracyKilometer
         checkForLocationServices()
-        locationManager.distanceFilter = 50
+        locationManager.distanceFilter = 1000
         locationManager.delegate = self
         checkForLocationServices()
 
