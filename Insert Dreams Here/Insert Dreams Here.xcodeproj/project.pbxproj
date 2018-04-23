@@ -74,6 +74,7 @@
 		DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		DB2EC37B206F77A1001141C1 /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		DB2EC37D206F77AF001141C1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DBFA9B1A2072E9C1002B3792 /* Insert Dreams Here.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Insert Dreams Here.entitlements"; sourceTree = "<group>"; };
 		FBF544380C17CC80B6CE0A6F /* Pods-Insert Dreams HereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +154,7 @@
 		DB062CBA204A199300357BA3 /* Insert Dreams Here */ = {
 			isa = PBXGroup;
 			children = (
+				DBFA9B1A2072E9C1002B3792 /* Insert Dreams Here.entitlements */,
 				DB2EC37A206F770A001141C1 /* API */,
 				DB2EC379206F76FF001141C1 /* Model */,
 				DB2EC378206F76EF001141C1 /* View */,
@@ -293,12 +295,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Mavey Ma";
 				TargetAttributes = {
 					DB062CB7204A199300357BA3 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					DB062CCB204A199300357BA3 = {
 						CreatedOnToolsVersion = 9.2;
@@ -601,6 +608,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -608,6 +616,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -658,6 +667,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -665,6 +675,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -699,11 +710,16 @@
 			baseConfigurationReference = CEB2A8244B1F2FDEF04C0DA7 /* Pods-Insert Dreams Here.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Insert Dreams Here/Insert Dreams Here.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y83F4Y3649;
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.scd.ios.lazuli;
+				DEVELOPMENT_TEAM = 9RR37ASP3A;
+				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.apps.lazuli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -715,11 +731,16 @@
 			baseConfigurationReference = 2403FBCE0F1C82112AC14603 /* Pods-Insert Dreams Here.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Insert Dreams Here/Insert Dreams Here.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y83F4Y3649;
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.scd.ios.lazuli;
+				DEVELOPMENT_TEAM = 9RR37ASP3A;
+				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.apps.lazuli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
