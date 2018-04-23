@@ -46,9 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       print("Logout notification received")
       self.logOut()
     }
+    
     // Google Map API
     GMSServices.provideAPIKey("AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68")
     GMSPlacesClient.provideAPIKey("AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68")
+    
     return true
   }
 
@@ -71,25 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     })
     // Load and show the login view controller
 
-  }
-
-  func registerForPushNotifications() {
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-      (granted, error) in
-      print("Permission granted: \(granted)")
-
-      guard granted else { return }
-      self.getNotificationSettings()
-    }
-  }
-
-  //Useful if user declines the permissions
-  func getNotificationSettings() {
-    UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-      print("Notification settings: \(settings)")
-      guard settings.authorizationStatus == .authorized else { return }
-      UIApplication.shared.registerForRemoteNotifications()
-    }
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
