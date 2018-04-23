@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // Google Map API
-    GMSServices.provideAPIKey("AIzaSyAunszbf5Rn7Gv9XyIPXAvTKnszK9NGLys")
+    GMSServices.provideAPIKey("AIzaSyA63muLcvuCIqFWrjxVRpuiDP7VyIg0d68")
     GMSPlacesClient.provideAPIKey("AIzaSyAunszbf5Rn7Gv9XyIPXAvTKnszK9NGLys")
 
     return true

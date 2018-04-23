@@ -52,25 +52,18 @@ class ComposeViewController: UIViewController {
   }
   
   @IBAction func onTapSelectLocationButton(_ sender: Any) {
-    let center = CLLocationCoordinate2D(latitude: 37.788204, longitude: -122.411937)
-    let northEast = CLLocationCoordinate2D(latitude: center.latitude + 0.001, longitude: center.longitude + 0.001)
-    let southWest = CLLocationCoordinate2D(latitude: center.latitude - 0.001, longitude: center.longitude - 0.001)
-    let viewport = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
-    let config = GMSPlacePickerConfig(viewport: viewport)
-    let placePicker = GMSPlacePicker(config: config)
-    
-    placePicker.pickPlace(callback: {(place, error) -> Void in
-      if let error = error {
-        print("Pick Place error: \(error.localizedDescription)")
-        return
-      }
-      self.flagImage.image = #imageLiteral(resourceName: "placeholder")
-      self.locationLabel.text = "No current place picked"
-      if let place = place {
-        self.updateLocationLabel(myPlace: place)
-      }
-      
-    })
+    // Create a place picker. Attempt to display it as a popover if we are on a device which
+    // supports popovers.
+    let config = GMSPlacePickerConfig(viewport: nil)
+    let placePicker = GMSPlacePickerViewController(config: config)
+    placePicker.delegate = self
+    placePicker.modalPresentationStyle = .popover
+    placePicker.popoverPresentationController?.sourceView = selectLocationButton
+    placePicker.popoverPresentationController?.sourceRect = selectLocationButton.bounds
+
+    // Display the place picker. This will call the delegate methods defined below when the user
+    // has made a selection.
+    self.present(placePicker, animated: true, completion: nil)
   }
   
   func updateLocationLabel(myPlace: GMSPlace) {
@@ -133,6 +126,27 @@ class ComposeViewController: UIViewController {
   
 }
 
+extension ComposeViewController: GMSPlacePickerViewControllerDelegate {
+  func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+    self.updateLocationLabel(myPlace: place)
+    // Dismiss the place picker.
+    viewController.dismiss(animated: true, completion: nil)
+  }
+  
+  func placePicker(_ viewController: GMSPlacePickerViewController, didFailWithError error: Error) {
+    self.flagImage.image = #imageLiteral(resourceName: "placeholder")
+    self.locationLabel.text = "No current place picked"
+    NSLog("An error occurred while picking a place: \(error)")
+  }
+  
+  func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+    NSLog("The place picker was canceled by the user")
+    // Dismiss the place picker.
+    viewController.dismiss(animated: true, completion: nil)
+  }
+}
+
+
 extension UIViewController
 {
   func hideKeyboard()
@@ -149,4 +163,3 @@ extension UIViewController
     view.endEditing(true)
   }
 }
-
