@@ -19,14 +19,6 @@ DEPENDENCIES:
   - Parse
   - RSKPlaceholderTextView
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Bolts
-    - GoogleMaps
-    - GooglePlaces
-    - Parse
-    - RSKPlaceholderTextView
-
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
@@ -36,4 +28,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 589055f1bbcc49b79f10923c9bf92b60b66c1337
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.4.0
