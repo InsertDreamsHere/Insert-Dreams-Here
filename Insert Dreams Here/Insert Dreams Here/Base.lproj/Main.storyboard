@@ -218,10 +218,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGF-nJ-ylC">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="72"/>
                                         <color key="backgroundColor" red="0.17254901959999999" green="0.25882352939999997" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <state key="normal" title="Select Location"/>
                                         <connections>
                                             <action selector="onTapSelectLocationButton:" destination="m9H-bL-B51" eventType="touchUpInside" id="rMv-ih-h19"/>
-                                            <segue destination="Zf8-LH-TEF" kind="presentation" identifier="tagSegue" id="2vR-yg-7U9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -282,6 +282,7 @@
                     <connections>
                         <outlet property="dreamBody" destination="d0F-bs-X8b" id="VFq-Ka-SPr"/>
                         <outlet property="dreamTitle" destination="Phy-Di-1t6" id="SDM-0G-vvZ"/>
+                        <outlet property="selectLocationButton" destination="MGF-nJ-ylC" id="mVO-rx-wwa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp7-n8-BMj" userLabel="First Responder" sceneMemberID="firstResponder"/>

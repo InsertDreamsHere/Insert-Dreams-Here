@@ -157,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				DBFA9B1A2072E9C1002B3792 /* Insert Dreams Here.entitlements */,
-				DB2EC37A206F770A001141C1 /* API */,
 				DB2EC379206F76FF001141C1 /* Model */,
 				DB2EC378206F76EF001141C1 /* View */,
 				DB2EC377206F76DD001141C1 /* ViewController */,
@@ -372,11 +371,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -714,10 +715,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Insert Dreams Here/Insert Dreams Here.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y83F4Y3649;
-				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.scd.ios.lazuli;
 				DEVELOPMENT_TEAM = 9RR37ASP3A;
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -735,10 +732,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Insert Dreams Here/Insert Dreams Here.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y83F4Y3649;
-				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.scd.ios.lazuli;
 				DEVELOPMENT_TEAM = 9RR37ASP3A;
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
