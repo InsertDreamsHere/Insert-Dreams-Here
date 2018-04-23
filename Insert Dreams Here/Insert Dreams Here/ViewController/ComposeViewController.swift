@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import FlagKit
 
 class ComposeViewController: UIViewController {
 
@@ -15,6 +16,8 @@ class ComposeViewController: UIViewController {
   @IBOutlet weak var dreamTitle: UITextView!
   @IBOutlet weak var selectLocationButton: UIButton!
   
+  @IBOutlet weak var roundFlagImage: UIImageView!
+  @IBOutlet weak var flagImage: UIImageView!
   var placesClient: GMSPlacesClient!
   
   override func viewDidLoad() {
@@ -45,13 +48,25 @@ class ComposeViewController: UIViewController {
           
           let country = self.getAddressComponent(ofType: "country", addrComponents: place.addressComponents!)
           
-          print(city)
+
+          self.setFlag(countryName: country)
           
           let location = city + ", " + state + ", " + country
           self.selectLocationButton.setTitle(location, for: .normal)
         }
       }
     }
+  }
+  
+  func setFlag(countryName: String) {
+    let shortCode = locale(for: countryName)
+    let flag = Flag(countryCode: shortCode)!
+    
+    // Retrieve the unstyled image for customized use
+    self.flagImage.image = flag.originalImage
+    
+    // Or retrieve a styled flag
+    self.roundFlagImage.image = flag.image(style: .circle)
   }
   
   func getAddressComponent(ofType partOfAddress: String, addrComponents: [GMSAddressComponent]) -> String {
@@ -64,15 +79,17 @@ class ComposeViewController: UIViewController {
     return part
   }
   
-  func getCity(addrComponents: [GMSAddressComponent]) -> String {
-    var city = "No city"
-    for component in addrComponents {
-      if component.type == "locality" {
-        city = component.name
-        print(city)
+  //https://stackoverflow.com/questions/12671829/get-country-code-from-country-name-in-ios
+  private func locale(for fullCountryName : String) -> String {
+    let locales : String = ""
+    for localeCode in NSLocale.isoCountryCodes {
+      let identifier = NSLocale(localeIdentifier: localeCode)
+      let countryName = identifier.displayName(forKey: NSLocale.Key.countryCode, value: localeCode)
+      if fullCountryName.lowercased() == countryName?.lowercased() {
+        return localeCode
       }
     }
-    return city
+    return locales
   }
 
   @IBAction func onPost(_ sender: Any) {
@@ -106,3 +123,4 @@ extension UIViewController
     view.endEditing(true)
   }
 }
+
