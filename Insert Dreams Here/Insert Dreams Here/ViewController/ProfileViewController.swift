@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController, UITableViewDataSource {
-  
+
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var biogrophyLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,12 +20,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     var Dreams: [PFObject] = []
     var Profiles: [PFObject] = []
     var refreshControl: UIRefreshControl!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    //userDreamTable.delegate = self
-    
+
     // Do any additional setup after loading the view.
     userDreamTable.dataSource = self
     //userDreamTable.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
@@ -33,27 +31,27 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(ProfileViewController.didPullToRefresh(_:)), for: .valueChanged)
     userDreamTable.insertSubview(refreshControl, at: 0)
-    
+
     getTimelineDreams()
     getUserProfile()
-    
+
   }
-    
+
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
         getTimelineDreams()
     }
-    
-    
+
+
     func getUserProfile(){
-        
+
         print("current user")
         print(PFUser.current()!)
-        
-        
+
+
         let query = PFQuery(className: "Profile")
         query.whereKey("author", equalTo: PFUser.current()!)
         query.includeKey("author.username")
-        
+
         query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
             if error == nil {
                 // The find succeeded.
@@ -69,7 +67,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                     let formatter = DateFormatter()
                     // initially set the format based on your datepicker date
                     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                    
+
                     let myString = formatter.string(from: PFUser.current()!.createdAt!)
                     // convert your string to date
                     let yourDate = formatter.date(from: myString)
@@ -77,25 +75,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                     formatter.dateFormat = "dd-MMM-yyyy"
                     // again convert your date to string
                     let myStringafd = formatter.string(from: yourDate!)
-                    
+
                     let join = "Joined "
-                    
+
                     self.nameLabel.text = PFUser.current()!["username"] as? String
                     self.dateJoinedLabel.text = join + myStringafd
                     self.userLocationLabel.text = self.Profiles[0]["location"] as? String
                     self.biogrophyLabel.text = self.Profiles[0]["bio"] as? String
-                    
+
                 }
             } else {
                 // Log details of the failure
                 print("Error: \(error!)")
             }
-            
+
         })
-        
+
     }
-    
-    
+
+
     func getTimelineDreams(){
         let query = PFQuery(className: "Dream")
         query.whereKey("author", equalTo: PFUser.current()!)
@@ -107,7 +105,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                 // Do something with the found objects
                 if let objects = objects {
                     self.Dreams = objects
-                    
+
                     for dream in self.Dreams {
                         print(dream["body"])
                     }
@@ -119,26 +117,26 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                 print("Error: \(error!)")
             }
         })
-        
+
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("Number of Dreams: !@#!@$!@#!@")
         print(self.Dreams.count)
         return Dreams.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = userDreamTable.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
         let Dream = Dreams[indexPath.row]
         cell.bodyLabel.text = Dream["body"] as? String
-        
+
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         //print("date:")
         //print(Dream.createdAt)
-        
+
         let myString = formatter.string(from: Dream.createdAt!)
         // convert your string to date
         let yourDate = formatter.date(from: myString)
@@ -146,7 +144,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         formatter.dateFormat = "dd-MMM-yyyy"
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
-        
+
         cell.dateLabel.text =  myStringafd
         //print("Dream title")
         //print(Dream["title"] as? String)
@@ -155,22 +153,22 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         } else {
             cell.titleLabel.text = Dream["title"] as? String
         }
-        
+
         let username = PFUser.current()!.username as! String
         cell.authorLabel.text = "by " + username
         return cell
     }
-    
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
+
   @IBAction func onLogout(_ sender: Any) {
     print("Clicked logout")
     NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
   }
-  
+
     @IBAction func onEdit(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name("onEdit"), object: nil)
     }
