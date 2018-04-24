@@ -172,5 +172,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
   }
   
     @IBAction func onEdit(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("onEdit"), object: nil)
     }
 }

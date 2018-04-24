@@ -45,9 +45,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       print("Logout notification received")
       self.logOut()
     }
+    NotificationCenter.default.addObserver(forName: Notification.Name("onEdit"), object: nil, queue: OperationQueue.main) { (Notification) in
+        print("Edit notification received")
+        self.edit()
+    }
+    NotificationCenter.default.addObserver(forName: Notification.Name("toProfile"), object: nil, queue: OperationQueue.main) { (Notification) in
+        print("to profile notification received")
+        self.toProfile()
+    }
+    NotificationCenter.default.addObserver(forName: Notification.Name("editDream"), object: nil, queue: OperationQueue.main) { (Notification) in
+        print("to profile notification received")
+        self.editDream()
+    }
     
     return true
   }
+    
+  func edit() {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let targetViewController = storyboard.instantiateViewController(withIdentifier: "EditProfileNav")
+    self.window?.rootViewController = targetViewController
+  }
+    func editDream() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let targetViewController = storyboard.instantiateViewController(withIdentifier: "EditDream")
+        self.window?.rootViewController = targetViewController
+    }
+    
+    func toProfile() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let targetViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController")
+        self.window?.rootViewController = targetViewController
+    }
   
   func changeViewTo(targetViewController: String) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)

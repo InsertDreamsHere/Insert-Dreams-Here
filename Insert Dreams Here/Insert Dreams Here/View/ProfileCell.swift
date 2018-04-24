@@ -14,6 +14,11 @@ class ProfileCell: UITableViewCell {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBAction func editDream(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("editDream"), object: nil)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
