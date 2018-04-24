@@ -95,9 +95,28 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
       let cell = mapTableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as! MapCell
       let Dream = Dreams[indexPath.row]
       cell.dreamContentLabel.text = Dream["body"] as? String
-      cell.dreamTitleLabel.text = (Dream["title"] as? String) ?? "No title"
-      //cell.postLocationLabel.text = Dream["paint"]
-      cell.postDateLabel.text = Dream["_created_at"] as? String
+        if (Dream["title"] as? String == "")
+        {
+            cell.dreamTitleLabel.text = "No Title Inserted"
+            
+        }
+        else{
+            cell.dreamTitleLabel.text = Dream["title"] as? String
+        }
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date
+        formatter.dateFormat = "MMM dd, yyyy"
+        //print("date:")
+        //print(Dream.createdAt)
+        
+        let myString = formatter.string(from: Dream.createdAt!)
+        // convert your string to date
+        let yourDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+        formatter.dateFormat = "MMM dd, yyyy"
+        // again convert your date to string
+        let Datelabel = formatter.string(from: yourDate!)
+      cell.postDateLabel.text = Datelabel
       //cell.userImage
       return cell
     }

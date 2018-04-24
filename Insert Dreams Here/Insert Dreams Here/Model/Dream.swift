@@ -12,7 +12,7 @@ import Parse
 class Dream: PFObject, PFSubclassing {
   @NSManaged var author: PFUser
   @NSManaged var body: String
-  @NSManaged var title: String
+  @NSManaged var title: String?
   
   /* Needed to implement PFSubclassing interface */
   class func parseClassName() -> String {
@@ -32,7 +32,7 @@ class Dream: PFObject, PFSubclassing {
     // Add relevant fields to the object
     dream.author = PFUser.current()! // Pointer column type that points to PFUser
     dream.body = content!
-    dream.title = title!
+    dream.title = title
     // Save object (following function will save the object in Parse asynchronously)
     dream.saveInBackground(block: completion)
   }
