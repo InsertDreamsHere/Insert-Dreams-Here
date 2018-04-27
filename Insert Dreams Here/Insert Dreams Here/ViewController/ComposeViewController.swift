@@ -21,6 +21,7 @@ class ComposeViewController: UIViewController {
   @IBOutlet weak var roundFlagImage: UIImageView!
   @IBOutlet weak var flagImage: UIImageView!
   var placesClient: GMSPlacesClient!
+  var selectedLocation: CLLocationCoordinate2D!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,14 +42,22 @@ class ComposeViewController: UIViewController {
         return
       }
       self.flagImage.image = #imageLiteral(resourceName: "placeholder")
-      self.locationLabel.text = "No current place"
+      self.locationLabel.text = "Select Location"
       if let placeLikelihoodList = placeLikelihoodList {
         let place = placeLikelihoodList.likelihoods.first?.place
         if let place = place {
           self.updateLocationLabel(myPlace: place)
+          self.setCurrentCoordinates(myPlace: place)
         }
       }
     }
+  }
+  
+  func setCurrentCoordinates(myPlace: GMSPlace) {
+    self.selectedLocation = myPlace.coordinate
+    let lat = myPlace.coordinate.latitude
+    let long = myPlace.coordinate.longitude
+    print("Check current coordinates CLLocationCoordinate2D: \(lat),\(long)")
   }
   
   @IBAction func onTapSelectLocationButton(_ sender: Any) {
@@ -60,19 +69,27 @@ class ComposeViewController: UIViewController {
     placePicker.modalPresentationStyle = .popover
     placePicker.popoverPresentationController?.sourceView = selectLocationButton
     placePicker.popoverPresentationController?.sourceRect = selectLocationButton.bounds
-
+    
     // Display the place picker. This will call the delegate methods defined below when the user
     // has made a selection.
     self.present(placePicker, animated: true, completion: nil)
   }
   
   func updateLocationLabel(myPlace: GMSPlace) {
-    let city = self.getAddressComponent(ofType: "locality", addrComponents: myPlace.addressComponents!)
-    let state = self.getAddressComponent(ofType: "administrative_area_level_1", addrComponents: myPlace.addressComponents!)
-    let country = self.getAddressComponent(ofType: "country", addrComponents: myPlace.addressComponents!)
-    self.setFlag(countryName: country)
-    let location = city + ", " + state + ", " + country
-    self.locationLabel.text = location
+    print(myPlace)
+    if (myPlace.addressComponents != nil) {
+      let city = self.getAddressComponent(ofType: "locality", addrComponents: myPlace.addressComponents!)
+      let state = self.getAddressComponent(ofType: "administrative_area_level_1", addrComponents: myPlace.addressComponents!)
+      let country = self.getAddressComponent(ofType: "country", addrComponents: myPlace.addressComponents!)
+      self.setFlag(countryName: country)
+      let location = city + ", " + state + ", " + country
+      self.locationLabel.text = location
+    } else {
+      //"Select this location" option in PlacePicker was selected, which does not have an address, only coordinates
+      self.flagImage.image = #imageLiteral(resourceName: "placeholder")
+      self.locationLabel.text = "Please select a city or country."
+    }
+    
   }
   
   func getAddressComponent(ofType partOfAddress: String, addrComponents: [GMSAddressComponent]) -> String {
@@ -111,15 +128,44 @@ class ComposeViewController: UIViewController {
     return locales
   }
   
+  func popUpMessage(title: String, message: String, confirmation: String) {
+    let alertControllerError = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    // create a cancel action
+    let cancelAction = UIAlertAction(title: confirmation, style: .cancel) { (action) in
+      // handle cancel response here. Doing nothing will dismiss the view.
+    }
+    // add the cancel action to the alertController
+    alertControllerError.addAction(cancelAction)
+    present(alertControllerError, animated: true)
+  }
+  
   @IBAction func onPost(_ sender: Any) {
     print("Clicked share")
     dreamBody.resignFirstResponder()
-    Dream.sendDream(withContent: dreamBody.text, title: dreamTitle.text) { (success, error) in
-      if success {
-        print("Great new dream!")
-      } else if let e = error as NSError? {
-        print(e.localizedDescription)
-        print("Something went wrong with your dream post.")
+    if dreamBody.text.isEmpty {
+      self.popUpMessage(title: "Missing Dream Content", message: "Please enter a dream first.", confirmation: "OK")
+    } else if selectedLocation == nil {
+      self.popUpMessage(title: "Missing Location Tag", message: "To pin your dream on the map, please select a location with a name.", confirmation: "OK")
+    } else {
+      if let selectedLocation = selectedLocation {
+        //If user doesn't set a title, grab the first 50 char from dream body
+        if dreamTitle.text.isEmpty {
+          var lengthOfTitle = 50
+          if dreamBody.text.count < lengthOfTitle {
+            lengthOfTitle = dreamBody.text.count
+          }
+          dreamTitle.text = String(dreamBody.text.prefix(lengthOfTitle))
+        }
+        let selectedLat = selectedLocation.latitude.description
+        let selectedLon = selectedLocation.longitude.description
+        Dream.sendDream(withContent: dreamBody.text, title: dreamTitle.text, lat: selectedLat, lon: selectedLon) { (success, error) in
+          if success {
+            print("Great new dream!")
+          } else if let e = error as NSError? {
+            print(e.localizedDescription)
+            print("Something went wrong with your dream post.")
+          }
+        }
       }
     }
   }
@@ -129,13 +175,14 @@ class ComposeViewController: UIViewController {
 extension ComposeViewController: GMSPlacePickerViewControllerDelegate {
   func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
     self.updateLocationLabel(myPlace: place)
+    self.setCurrentCoordinates(myPlace: place)
     // Dismiss the place picker.
     viewController.dismiss(animated: true, completion: nil)
   }
   
   func placePicker(_ viewController: GMSPlacePickerViewController, didFailWithError error: Error) {
     self.flagImage.image = #imageLiteral(resourceName: "placeholder")
-    self.locationLabel.text = "No current place picked"
+    self.locationLabel.text = "Select a location tag"
     NSLog("An error occurred while picking a place: \(error)")
   }
   
@@ -145,7 +192,6 @@ extension ComposeViewController: GMSPlacePickerViewControllerDelegate {
     viewController.dismiss(animated: true, completion: nil)
   }
 }
-
 
 extension UIViewController
 {
