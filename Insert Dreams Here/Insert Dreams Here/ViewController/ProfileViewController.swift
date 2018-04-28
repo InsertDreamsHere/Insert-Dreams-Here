@@ -172,4 +172,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     @IBAction func onEdit(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name("onEdit"), object: nil)
     }
+    //Mark - UITableViewDelegate
+    /*var selectedDream: Dream
+    
+    func tableView( tableview: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let title = Dreams[IndexPath]
+        let dream = userDreamTable
+    }*/
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showDreamDeatail"){
+            var selectedRowIndex = self.userDreamTable.indexPathForSelectedRow
+            var moveVC:EditDreamViewController = segue.destination as! EditDreamViewController
+            print("selected Dream")
+            moveVC.dTitle = Dreams[(selectedRowIndex?.row)!]["title"] as! String
+            moveVC.dBody = Dreams[(selectedRowIndex?.row)!]["body"] as! String
+            //print(Dreams[(selectedRowIndex?.row)!]["body"])
+        }
+    }
 }

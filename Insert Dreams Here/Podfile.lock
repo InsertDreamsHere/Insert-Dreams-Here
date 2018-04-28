@@ -1,19 +1,19 @@
 PODS:
   - Bolts/Tasks (1.9.0)
   - FlagKit (2.0.1)
-  - GoogleMaps (2.6.0):
-    - GoogleMaps/Maps (= 2.6.0)
-  - GoogleMaps/Base (2.6.0)
-  - GoogleMaps/Maps (2.6.0):
+  - GoogleMaps (2.5.0):
+    - GoogleMaps/Maps (= 2.5.0)
+  - GoogleMaps/Base (2.5.0)
+  - GoogleMaps/Maps (2.5.0):
     - GoogleMaps/Base
-  - GooglePlacePicker (2.6.0):
-    - GoogleMaps (= 2.6.0)
-    - GooglePlaces (= 2.6.0)
-  - GooglePlaces (2.6.0):
-    - GoogleMaps/Base (= 2.6.0)
-  - Parse (1.17.1):
-    - Parse/Core (= 1.17.1)
-  - Parse/Core (1.17.1):
+  - GooglePlacePicker (2.5.0):
+    - GoogleMaps (= 2.5.0)
+    - GooglePlaces (= 2.5.0)
+  - GooglePlaces (2.5.0):
+    - GoogleMaps/Base (= 2.5.0)
+  - Parse (1.16.0):
+    - Parse/Core (= 1.16.0)
+  - Parse/Core (1.16.0):
     - Bolts/Tasks (~> 1.9)
   - RSKPlaceholderTextView (3.0.0)
 
@@ -28,10 +28,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FlagKit: 75c64346179f254d1753bebdc5b1f9cbe7890748
-  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
-  GooglePlacePicker: e4488625effb006f59de49e14b7a603e463e4261
-  GooglePlaces: f6ddf33b75cef69e888907d9947c57198ed845f3
-  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
+  GooglePlacePicker: 1573e644ab54564d95c2643edc0f29091609e966
+  GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
+  Parse: 5b36dc2c2f0a2fd82a257ae018bc3d68cf2c24e7
   RSKPlaceholderTextView: 0ce73a19998e236323b3f1f16bf4a4e4a76c2c28
 
 PODFILE CHECKSUM: b684e79918ddfa4578c04e0e3bc121833cd3d449

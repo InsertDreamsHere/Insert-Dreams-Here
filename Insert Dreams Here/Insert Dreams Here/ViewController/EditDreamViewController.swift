@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Parse
 
 class EditDreamViewController: UIViewController {
 
     @IBOutlet weak var dreamTitle: UITextView!
     @IBOutlet weak var dreamBody: UITextView!
+    var dTitle = ""
+    var dBody = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        dreamTitle.text = dTitle
+        dreamBody.text = dBody
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,11 +31,37 @@ class EditDreamViewController: UIViewController {
     }
     
 
-    @IBAction func cancelEditDream(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
-    }
+    
     @IBAction func updateDream(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
+        //NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
+        var query = PFQuery(className:"Dream")
+        query.whereKey("body", equalTo: dBody)
+        /*query.getObjectInBackgroundWithId("xWMyZEGZ") {
+            (gameScore: PFObject?, error: NSError?) -> Void in
+            if error != nil {
+                print(error)
+            } else if let gameScore = gameScore {
+                gameScore[“cheatMode”] = true
+                gameScore[“score”] = 1338
+                gameScore.saveInBackground()
+            }
+            } */
+        query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) Dream.")
+                // Do something with the found objects
+                objects![0]["title"] = self.dreamTitle.text as String
+                objects![0]["body"] = self.dreamBody.text as String
+                print("edit Dream")
+                print(objects![0]["body"])
+                //objects.saveInBackground()
+            } else {
+                // Log details of the failure
+                print("Error: \(error!)")
+            }
+            
+        })
     }
     @IBAction func deleteDream(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
