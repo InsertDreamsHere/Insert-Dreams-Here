@@ -13,7 +13,7 @@ import GoogleMaps
 
 
 class MapViewController: UIViewController, UITableViewDataSource, CLLocationManagerDelegate {
-
+    
     var Dreams: [PFObject] = []
     var locationManager = CLLocationManager()
     var mapView: GMSMapView!
@@ -21,7 +21,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     var locations: [(CLLocationCoordinate2D, String)] = []
     var markers: [GMSMarker] = []
     var queue: OperationQueue!
-
+    
     @IBOutlet weak var mapTableView: UITableView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
     override func viewDidLoad() {
@@ -35,8 +35,8 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         locationManager.distanceFilter = 50
         locationManager.delegate = self
         checkForLocationServices()
-
-        // tableView
+        
+        // mapView position inside tableView
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height*0.7
         let camera = GMSCameraPosition.camera(withLatitude: -33.8683, longitude: 151.2086, zoom: zoomLevel)
@@ -51,28 +51,24 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         } catch {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
-
+        
+        //tableView content offset; dynamic height
         print("ViewDidLoaded!")
         mapTableView.dataSource = self
         mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
         mapTableView.contentOffset = CGPoint(x: 0, y: 1)
-
         mapTableView.rowHeight = UITableViewAutomaticDimension
         mapTableView.estimatedRowHeight = 500
-        //
-        //        //Asking user for location service and get user's current location
-        //        mapView.delegate = self
-        //
-        //        locationManager.delegate = self
-        //        checkForLocationServices()
-        //        //locationManager.requestLocation()
-        //        print("location Requested")
-        //
+        
+        // get dreams from data base
         fetchFromTheDatabase(tableName: "Dream")
+        
         // fills in the color of map search bar
         let searchBarBackground = UIColor(red:0.22, green:0.23, blue:0.25, alpha:1.0)
         mapSearchBar.changeSearchBarColor(color: searchBarBackground)
         self.hideKeyboard()
+        
+        // adding the mapView to the tableView
         mapTableView.addSubview(mapView)
     }
     //
@@ -87,15 +83,13 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    //
-    //
-    //
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Number of Dreams: !@#!@$!@#!@")
+        print("Number of Dreams:")
         print(self.Dreams.count)
         return Dreams.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mapTableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as! MapCell
         let Dream = Dreams[indexPath.row]
@@ -103,7 +97,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         cell.dreamContentLabel.text = Dream["body"] as? String
         if (Dream["title"] as? String == "" || Dream["title"] == nil)
         {
-            cell.dreamTitleLabel.text = "Null~~~"
+            cell.dreamTitleLabel.text = "Untitled"
         }
         else{
             cell.dreamTitleLabel.text = Dream["title"] as? String
@@ -111,9 +105,6 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date
         formatter.dateFormat = "MMM dd, yyyy"
-        //print("date:")
-        //print(Dream.createdAt)
-
         let myString = formatter.string(from: Dream.createdAt!)
         // convert your string to date
         let yourDate = formatter.date(from: myString)
@@ -121,9 +112,10 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         formatter.dateFormat = "MMM dd, yyyy"
         // again convert your date to string
         let Datelabel = formatter.string(from: yourDate!)
-      cell.postDateLabel.text = Datelabel
-      //cell.userImage
-      return cell
+        cell.postDateLabel.text = Datelabel
+        cell.userNameLabel.text = String(user!)
+        //cell.userImage
+        return cell
     }
     //
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -132,7 +124,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     func fetchFromTheDatabase(tableName Str: String) {
         //Kick it to other thread
         let operation = BlockOperation{
-
+            
             let DreamData = PFQuery(className: "\(Str)")
             DreamData.order(byDescending: "_updated_at")
             DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
@@ -158,7 +150,6 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
                         OperationQueue.main.addOperation {
                             for m in self.markers {
                                 m.map = self.mapView
-                                print(self.markers[0])
                             }
                         }
                         self.mapTableView.reloadData()
@@ -183,7 +174,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
             print("location service is not available")
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let lat = locations.last?.coordinate.latitude, let long = locations.last?.coordinate.longitude {
             print("Printing user location")
@@ -191,12 +182,12 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
             mapView.camera = GMSCameraPosition.camera(withLatitude: lat,
                                                       longitude: long,
                                                       zoom: zoomLevel)
-
+            
         } else {
             print("No coordinates")
         }
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
