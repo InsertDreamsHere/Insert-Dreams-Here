@@ -14,6 +14,7 @@ class MapCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var postLocationLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

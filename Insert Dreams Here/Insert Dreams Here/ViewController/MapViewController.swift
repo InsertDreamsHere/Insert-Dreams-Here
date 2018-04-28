@@ -17,20 +17,25 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     var Dreams: [PFObject] = []
     var locationManager = CLLocationManager()
     var mapView: GMSMapView!
-    var zoomLevel: Float = 10.0
-    
+    var zoomLevel: Float = 7.0
+    var locations: [(CLLocationCoordinate2D, String)] = []
+    var markers: [GMSMarker] = []
+    var queue: OperationQueue!
+
     @IBOutlet weak var mapTableView: UITableView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
     override func viewDidLoad() {
-      super.viewDidLoad()
+        super.viewDidLoad()
+        //Multi-threading
+        queue = OperationQueue()
         //Location Manager
         locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy =  kCLLocationAccuracyKilometer
         checkForLocationServices()
         locationManager.distanceFilter = 50
         locationManager.delegate = self
         checkForLocationServices()
-        
+
         // tableView
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height*0.7
@@ -48,57 +53,57 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         }
 
         print("ViewDidLoaded!")
-      mapTableView.dataSource = self
-      mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
-      mapTableView.contentOffset = CGPoint(x: 0, y: 1)
+        mapTableView.dataSource = self
+        mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
+        mapTableView.contentOffset = CGPoint(x: 0, y: 1)
 
-      mapTableView.rowHeight = UITableViewAutomaticDimension
-      mapTableView.estimatedRowHeight = 500
-//
-//        //Asking user for location service and get user's current location
-//        mapView.delegate = self
-//
-//        locationManager.delegate = self
-//        checkForLocationServices()
-//        //locationManager.requestLocation()
-//        print("location Requested")
-//
-      fetchFromTheDatabase(tableName: "Dream")
-      // fills in the color of map search bar
-      let searchBarBackground = UIColor(red:0.22, green:0.23, blue:0.25, alpha:1.0)
-      mapSearchBar.changeSearchBarColor(color: searchBarBackground)
-      self.hideKeyboard()
+        mapTableView.rowHeight = UITableViewAutomaticDimension
+        mapTableView.estimatedRowHeight = 500
+        //
+        //        //Asking user for location service and get user's current location
+        //        mapView.delegate = self
+        //
+        //        locationManager.delegate = self
+        //        checkForLocationServices()
+        //        //locationManager.requestLocation()
+        //        print("location Requested")
+        //
+        fetchFromTheDatabase(tableName: "Dream")
+        // fills in the color of map search bar
+        let searchBarBackground = UIColor(red:0.22, green:0.23, blue:0.25, alpha:1.0)
+        mapSearchBar.changeSearchBarColor(color: searchBarBackground)
+        self.hideKeyboard()
         mapTableView.addSubview(mapView)
     }
-//
-//
-      override func viewWillAppear(_ animated: Bool) {
-          super.viewWillAppear(animated)
-          print("in view will appear")
-          fetchFromTheDatabase(tableName: "Dream")
-      }
-//
-    override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+    //
+    //
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("in view will appear")
+        fetchFromTheDatabase(tableName: "Dream")
     }
-//
-//
-//
+    //
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    //
+    //
+    //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      print("Number of Dreams: !@#!@$!@#!@")
-      print(self.Dreams.count)
-      return Dreams.count
+        print("Number of Dreams: !@#!@$!@#!@")
+        print(self.Dreams.count)
+        return Dreams.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = mapTableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as! MapCell
-      let Dream = Dreams[indexPath.row]
-      cell.dreamContentLabel.text = Dream["body"] as? String
-        if (Dream["title"] as? String == "")
+        let cell = mapTableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as! MapCell
+        let Dream = Dreams[indexPath.row]
+        let user = PFUser.current()?.username
+        cell.dreamContentLabel.text = Dream["body"] as? String
+        if (Dream["title"] as? String == "" || Dream["title"] == nil)
         {
-            cell.dreamTitleLabel.text = "No Title Inserted"
-            
+            cell.dreamTitleLabel.text = "Null~~~"
         }
         else{
             cell.dreamTitleLabel.text = Dream["title"] as? String
@@ -108,7 +113,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         formatter.dateFormat = "MMM dd, yyyy"
         //print("date:")
         //print(Dream.createdAt)
-        
+
         let myString = formatter.string(from: Dream.createdAt!)
         // convert your string to date
         let yourDate = formatter.date(from: myString)
@@ -120,32 +125,53 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
       //cell.userImage
       return cell
     }
-//
+    //
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      mapTableView.deselectRow(at: indexPath, animated: true)
+        mapTableView.deselectRow(at: indexPath, animated: true)
     }
     func fetchFromTheDatabase(tableName Str: String) {
-        let DreamData = PFQuery(className: "\(Str)")
-        DreamData.order(byDescending: "_updated_at")
-        DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
-                if let objects = objects {
-                    self.Dreams = objects
-//                    for dream in self.Dreams {
-//                        print(dream.updatedAt!)
-//                    }
-                    self.mapTableView.reloadData()
+        //Kick it to other thread
+        let operation = BlockOperation{
+
+            let DreamData = PFQuery(className: "\(Str)")
+            DreamData.order(byDescending: "_updated_at")
+            DreamData.findObjectsInBackground(block: { (objects : [PFObject]?, error: Error?) -> Void in
+                if error == nil {
+                    // The find succeeded.
+                    print("Successfully retrieved \(objects!.count) scores.")
+                    // Do something with the found objects
+                    if let objects = objects {
+                        self.Dreams = objects
+                        if (Str == "Dream"){
+                            for dream in self.Dreams{
+                                if (dream["latitude"] != nil && dream["longitude"] != nil){
+                                    //                        let tuple = (CLLocationCoordinate2D(latitude: Double(dream["latitude"] as! String)!, longitude: Double(dream["latitude"] as! String)!), dream["title"] as! String)
+                                    //                        self.locations.append(tuple)
+                                    let position = CLLocationCoordinate2D(latitude: Double(dream["latitude"] as! String)!, longitude: Double(dream["longitude"] as! String)!)
+                                    let marker = GMSMarker(position: position)
+                                    marker.title = dream["title"] as? String
+                                    self.markers.append(marker)
+                                    print("Number of markers: \(self.markers.count)")
+                                }
+                            }
+                        }
+                        OperationQueue.main.addOperation {
+                            for m in self.markers {
+                                m.map = self.mapView
+                                print(self.markers[0])
+                            }
+                        }
+                        self.mapTableView.reloadData()
+                    }
+                } else {
+                    // Log details of the failure
+                    print("Error: \(error!)")
                 }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!)")
-            }
-        })
+            })
+        }
+        queue.addOperation(operation)
     }
-//
+    //
     func checkForLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
             // Location services are available, so query the user’s location.
@@ -165,10 +191,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
             mapView.camera = GMSCameraPosition.camera(withLatitude: lat,
                                                       longitude: long,
                                                       zoom: zoomLevel)
-            let position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let marker = GMSMarker(position: position)
-            marker.title = "Hello World"
-            marker.map = mapView
+
         } else {
             print("No coordinates")
         }
@@ -177,15 +200,15 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
-//
+    //
 }
 extension UISearchBar {
-  func changeSearchBarColor(color: UIColor) {
-    UIGraphicsBeginImageContext(self.frame.size)
-    color.setFill()
-    UIBezierPath(rect: self.frame).fill()
-    let bgImage = UIGraphicsGetImageFromCurrentImageContext()!
-    UIGraphicsEndImageContext()
-    self.setSearchFieldBackgroundImage(bgImage, for: .normal)
-  }
+    func changeSearchBarColor(color: UIColor) {
+        UIGraphicsBeginImageContext(self.frame.size)
+        color.setFill()
+        UIBezierPath(rect: self.frame).fill()
+        let bgImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        self.setSearchFieldBackgroundImage(bgImage, for: .normal)
+    }
 }

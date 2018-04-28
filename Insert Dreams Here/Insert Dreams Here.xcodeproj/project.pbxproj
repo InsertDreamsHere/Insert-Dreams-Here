@@ -25,6 +25,7 @@
 		DB062CEC204A3E1700357BA3 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */; };
 		DB2EC37C206F77A1001141C1 /* Dream.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2EC37B206F77A1001141C1 /* Dream.swift */; };
 		DB2EC37E206F77AF001141C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2EC37D206F77AF001141C1 /* User.swift */; };
+		DB7B0C7D208DBD0A00A2AE14 /* FlagKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7B0C7C208DBD0A00A2AE14 /* FlagKit.xcassets */; };
 		F8B5DDC7D2741BD4CE29F5A8 /* Pods_Insert_Dreams_HereUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019599D3F9ED8B7E453D28EA /* Pods_Insert_Dreams_HereUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		DB2EC37B206F77A1001141C1 /* Dream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dream.swift; sourceTree = "<group>"; };
 		DB2EC37D206F77AF001141C1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB7B0C7C208DBD0A00A2AE14 /* FlagKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FlagKit.xcassets; sourceTree = "<group>"; };
+		DBFA9B1A2072E9C1002B3792 /* Insert Dreams Here.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Insert Dreams Here.entitlements"; sourceTree = "<group>"; };
 		FBF544380C17CC80B6CE0A6F /* Pods-Insert Dreams HereUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,12 +158,14 @@
 		DB062CBA204A199300357BA3 /* Insert Dreams Here */ = {
 			isa = PBXGroup;
 			children = (
+				DBFA9B1A2072E9C1002B3792 /* Insert Dreams Here.entitlements */,
 				DB2EC379206F76FF001141C1 /* Model */,
 				DB2EC378206F76EF001141C1 /* View */,
 				DB2EC377206F76DD001141C1 /* ViewController */,
 				DB062CBB204A199300357BA3 /* AppDelegate.swift */,
 				DB062CBF204A199300357BA3 /* Main.storyboard */,
 				DB062CC4204A199300357BA3 /* LaunchScreen.storyboard */,
+				DB7B0C7C208DBD0A00A2AE14 /* FlagKit.xcassets */,
 				DB062CC2204A199300357BA3 /* Assets.xcassets */,
 				DB062CC7204A199300357BA3 /* Info.plist */,
 			);
@@ -284,12 +289,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Mavey Ma";
 				TargetAttributes = {
 					DB062CB7204A199300357BA3 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					DB062CCB204A199300357BA3 = {
 						CreatedOnToolsVersion = 9.2;
@@ -328,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7B0C7D208DBD0A00A2AE14 /* FlagKit.xcassets in Resources */,
 				DB062CC6204A199300357BA3 /* LaunchScreen.storyboard in Resources */,
 				DB062CC3204A199300357BA3 /* Assets.xcassets in Resources */,
 				DB062CC1204A199300357BA3 /* Main.storyboard in Resources */,
@@ -360,11 +371,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,12 +411,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FlagKit/FlagKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKPlaceholderTextView/RSKPlaceholderTextView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlagKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKPlaceholderTextView.framework",
 			);
@@ -533,6 +548,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -540,6 +556,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -590,6 +607,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -597,6 +615,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -631,11 +650,12 @@
 			baseConfigurationReference = CEB2A8244B1F2FDEF04C0DA7 /* Pods-Insert Dreams Here.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Insert Dreams Here/Insert Dreams Here.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MRM3YA4WR9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.scd.ios.lazuli;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.apps.lazuli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -647,11 +667,12 @@
 			baseConfigurationReference = 2403FBCE0F1C82112AC14603 /* Pods-Insert Dreams Here.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Insert Dreams Here/Insert Dreams Here.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MRM3YA4WR9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Insert Dreams Here/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.scd.ios.lazuli;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.apps.lazuli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -10,6 +10,8 @@ target 'Insert Dreams Here' do
     pod 'RSKPlaceholderTextView'
     pod 'GoogleMaps'
     pod 'GooglePlaces'
+    pod 'GooglePlacePicker'
+    pod 'FlagKit'
   target 'Insert Dreams HereTests' do
     inherit! :search_paths
     # Pods for testing
