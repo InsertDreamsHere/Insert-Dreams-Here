@@ -165,8 +165,10 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
             mapView.camera = GMSCameraPosition.camera(withLatitude: lat,
                                                       longitude: long,
                                                       zoom: zoomLevel)
-//            let sfRegion = MKCoordinateRegionMake(CLLocationCoordinate2DMake(lat, long), MKCoordinateSpanMake(0.1, 0.1))
-//            mapView.setRegion(sfRegion, animated: false)
+            let position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            let marker = GMSMarker(position: position)
+            marker.title = "Hello World"
+            marker.map = mapView
         } else {
             print("No coordinates")
         }
