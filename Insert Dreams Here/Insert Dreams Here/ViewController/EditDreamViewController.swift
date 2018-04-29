@@ -33,19 +33,8 @@ class EditDreamViewController: UIViewController {
 
     
     @IBAction func updateDream(_ sender: Any) {
-        //NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
         var query = PFQuery(className:"Dream")
         query.whereKey("body", equalTo: dBody)
-        /*query.getObjectInBackgroundWithId("xWMyZEGZ") {
-            (gameScore: PFObject?, error: NSError?) -> Void in
-            if error != nil {
-                print(error)
-            } else if let gameScore = gameScore {
-                gameScore[“cheatMode”] = true
-                gameScore[“score”] = 1338
-                gameScore.saveInBackground()
-            }
-            } */
         query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
             if error == nil {
                 // The find succeeded.
@@ -55,7 +44,8 @@ class EditDreamViewController: UIViewController {
                 objects![0]["body"] = self.dreamBody.text as String
                 print("edit Dream")
                 print(objects![0]["body"])
-                //objects.saveInBackground()
+                objects![0].saveInBackground()
+                _ = self.navigationController?.popViewController(animated: true)
             } else {
                 // Log details of the failure
                 print("Error: \(error!)")

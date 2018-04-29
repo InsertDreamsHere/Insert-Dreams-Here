@@ -187,6 +187,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
             moveVC.dTitle = Dreams[(selectedRowIndex?.row)!]["title"] as! String
             moveVC.dBody = Dreams[(selectedRowIndex?.row)!]["body"] as! String
             //print(Dreams[(selectedRowIndex?.row)!]["body"])
+            
         }
     }
 }
