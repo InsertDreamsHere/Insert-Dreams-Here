@@ -14,7 +14,10 @@
 		44677E45024E462971F0AA80 /* Pods_Insert_Dreams_HereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */; };
 		80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294455204A207F00FE7A60 /* ProfileViewController.swift */; };
 		80294458204A216600FE7A60 /* DreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294457204A216600FE7A60 /* DreamCell.swift */; };
+		802A9AD7208E7FF600746AF4 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A9AD6208E7FF600746AF4 /* EditProfileViewController.swift */; };
+		802A9AD9208E892500746AF4 /* EditDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A9AD8208E892500746AF4 /* EditDreamViewController.swift */; };
 		80BD4670207C1CB900DA3D1F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BD466F207C1CB900DA3D1F /* Profile.swift */; };
+		80BD4672207EB12900DA3D1F /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BD4671207EB12900DA3D1F /* ProfileCell.swift */; };
 		DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB062CBB204A199300357BA3 /* AppDelegate.swift */; };
 		DB062CC1204A199300357BA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB062CBF204A199300357BA3 /* Main.storyboard */; };
 		DB062CC3204A199300357BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB062CC2204A199300357BA3 /* Assets.xcassets */; };
@@ -55,7 +58,10 @@
 		637436C6D181561832830E77 /* Pods-Insert Dreams HereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80294455204A207F00FE7A60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		80294457204A216600FE7A60 /* DreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamCell.swift; sourceTree = "<group>"; };
+		802A9AD6208E7FF600746AF4 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		802A9AD8208E892500746AF4 /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; };
 		80BD466F207C1CB900DA3D1F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		80BD4671207EB12900DA3D1F /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		9262B85A230A10B584687066 /* Pods-Insert Dreams HereUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_HereTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA691EFCF3E92F028B57DFC /* Pods_Insert_Dreams_Here.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Insert_Dreams_Here.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +203,8 @@
 				DB062CEB204A3E1700357BA3 /* ComposeViewController.swift */,
 				0A4DA4A2204A697600167173 /* MapViewController.swift */,
 				80294455204A207F00FE7A60 /* ProfileViewController.swift */,
+				802A9AD6208E7FF600746AF4 /* EditProfileViewController.swift */,
+				802A9AD8208E892500746AF4 /* EditDreamViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 			children = (
 				0A4DA4A0204A28AD00167173 /* MapCell.swift */,
 				80294457204A216600FE7A60 /* DreamCell.swift */,
+				80BD4671207EB12900DA3D1F /* ProfileCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,10 +482,13 @@
 				DB062CEA204A1B5100357BA3 /* LoginViewController.swift in Sources */,
 				80BD4670207C1CB900DA3D1F /* Profile.swift in Sources */,
 				0A4DA4A1204A28AD00167173 /* MapCell.swift in Sources */,
+				80BD4672207EB12900DA3D1F /* ProfileCell.swift in Sources */,
 				0A4DA4A3204A697600167173 /* MapViewController.swift in Sources */,
 				80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */,
 				80294458204A216600FE7A60 /* DreamCell.swift in Sources */,
 				DB2EC37E206F77AF001141C1 /* User.swift in Sources */,
+				802A9AD7208E7FF600746AF4 /* EditProfileViewController.swift in Sources */,
+				802A9AD9208E892500746AF4 /* EditDreamViewController.swift in Sources */,
 				DB062CBC204A199300357BA3 /* AppDelegate.swift in Sources */,
 				DB062CEC204A3E1700357BA3 /* ComposeViewController.swift in Sources */,
 				DB2EC37C206F77A1001141C1 /* Dream.swift in Sources */,
