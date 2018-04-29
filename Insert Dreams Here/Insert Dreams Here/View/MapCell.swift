@@ -14,6 +14,7 @@ class MapCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var postLocationLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,10 @@ class MapCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        dreamContentLabel.numberOfLines = 5
+        dreamTitleLabel.numberOfLines = 2
+        userNameLabel.numberOfLines = 1
+        postLocationLabel.numberOfLines = 2
     }
 
 }
