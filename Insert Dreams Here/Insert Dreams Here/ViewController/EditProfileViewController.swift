@@ -11,10 +11,13 @@ import Parse
 
 class EditProfileViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextView!
+    
+    @IBOutlet weak var username: UILabel!
     @IBOutlet weak var userBio: UITextView!
     @IBOutlet weak var userPicture: UIImageView!
     var Profiles: [PFObject] = []
+    var bio = ""
+    var image = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,9 +83,7 @@ class EditProfileViewController: UIViewController {
     }
     
 
-    @IBAction func cancelEdit(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
-    }
+    
     
     @IBAction func updateEdit(_ sender: Any) {
         setUserProfile()
