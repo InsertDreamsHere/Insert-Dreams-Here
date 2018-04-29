@@ -186,11 +186,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         if(segue.identifier == "showProfileDetail"){
             
             var moveVC:EditProfileViewController = segue.destination as! EditProfileViewController
-            
-            //moveVC.dTitle = Dreams[(selectedRowIndex?.row)!]["title"] as! String
-            //moveVC.dBody = Dreams[(selectedRowIndex?.row)!]["body"] as! String
-            //print(Dreams[(selectedRowIndex?.row)!]["body"])
-            
+            moveVC.bio = biogrophyLabel.text!
+            moveVC.image = profilePic
         }
     }
 }
