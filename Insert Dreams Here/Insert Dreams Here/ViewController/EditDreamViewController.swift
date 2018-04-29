@@ -54,18 +54,22 @@ class EditDreamViewController: UIViewController {
         })
     }
     @IBAction func deleteDream(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
+        //NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
+        var query = PFQuery(className:"Dream")
+        query.whereKey("body", equalTo: dBody)
+        query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) Dream.")
+                // Do something with the found objects
+                
+                objects![0].deleteInBackground()
+                _ = self.navigationController?.popViewController(animated: true)
+            } else {
+                // Log details of the failure
+                print("Error: \(error!)")
+            }
+            
+        })
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
