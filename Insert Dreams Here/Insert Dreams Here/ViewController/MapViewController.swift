@@ -114,6 +114,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
         let Datelabel = formatter.string(from: yourDate!)
         cell.postDateLabel.text = Datelabel
         cell.userNameLabel.text = String(user!)
+        cell.postLocationLabel.text = Dream["location"] as? String
         //cell.userImage
         return cell
     }

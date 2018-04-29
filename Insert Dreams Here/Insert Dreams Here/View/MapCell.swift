@@ -25,6 +25,10 @@ class MapCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        dreamContentLabel.numberOfLines = 5
+        dreamTitleLabel.numberOfLines = 2
+        userNameLabel.numberOfLines = 1
+        postLocationLabel.numberOfLines = 2
     }
 
 }
