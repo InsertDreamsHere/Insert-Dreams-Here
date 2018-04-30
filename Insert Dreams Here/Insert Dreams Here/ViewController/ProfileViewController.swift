@@ -41,6 +41,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
         getUserProfile()
         getTimelineDreams()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,8 +90,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
                     self.dateJoinedLabel.text = join + myStringafd
                     self.userLocationLabel.text = self.Profiles[0]["location"] as? String
                     self.biogrophyLabel.text = self.Profiles[0]["bio"] as? String
+                    if let imageFile : PFFile = self.Profiles[0]["media"] as? PFFile {
+                        imageFile.getDataInBackground(block: { (data, error) in
+                            if error == nil {
+                                let image = UIImage(data: data!)
+                                self.profilePic.image = image
+                            } else {
+                                print(error!.localizedDescription)
+                            }
+                        })
+                    }
                     
-                    self.profilePic.image = self.Profiles[0]["media"] as? UIImage
                     let numDream = self.Profiles[0]["dreamCount"] as! Int
                     if numDream == 1 {
                         self.dreamWordLabel.text = "Dream"
@@ -163,8 +173,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         // again convert your date to string
         myStringafd = formatter.string(from: yourDate!)
         cell.timeLabel.text =  myStringafd
-        //cell.profilePicture.image = self.profilePic.image
-        
+        cell.profilePicture.image = self.profilePic.image
+        cell.locationLabel.text = Dream["location"] as? String
         
         
         if(Dream["title"] as? String == nil) {
@@ -196,7 +206,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
             moveVC.dTitle = Dreams[(selectedRowIndex?.row)!]["title"] as! String
             print(Dreams[(selectedRowIndex?.row)!]["title"] as! String)
             moveVC.dBody = Dreams[(selectedRowIndex?.row)!]["body"] as! String
-            print(Dreams[(selectedRowIndex?.row)!]["body"] as! String)
+            //print(Dreams[(selectedRowIndex?.row)!]["body"] as! String)
             //print(Dreams[(selectedRowIndex?.row)!]["body"])
             
         }
@@ -204,7 +214,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
             
             let moveVC:EditProfileViewController = segue.destination as! EditProfileViewController
             moveVC.bio = biogrophyLabel.text!
-            moveVC.image = profilePic
+            moveVC.image = self.profilePic
         }
     }
 }

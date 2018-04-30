@@ -26,7 +26,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         
         userBio.text = bio
-        //userPicture = image
+//        if(userPicture != nil){
+//            userPicture = image
+//        }
+        userPicture.image = self.image.image
         username.text = PFUser.current()!["username"] as? String
     }
     
