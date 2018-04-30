@@ -644,8 +644,8 @@
                                                                             <color key="textColor" red="1" green="0.90196078430000004" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-outline" translatesAutoresizingMaskIntoConstraints="NO" id="erG-hP-toL">
-                                                                            <rect key="frame" x="8" y="16" width="50" height="50"/>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="user-outline" translatesAutoresizingMaskIntoConstraints="NO" id="erG-hP-toL">
+                                                                            <rect key="frame" x="0.0" y="16" width="50" height="50"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="50" id="GjU-vc-8et"/>
                                                                                 <constraint firstAttribute="height" constant="50" id="Zfg-nL-OVB"/>
@@ -682,13 +682,14 @@
                                                                         <constraint firstItem="zvJ-VM-5JN" firstAttribute="top" secondItem="8Dn-78-uBS" secondAttribute="bottom" constant="4" id="LPX-ad-cgT"/>
                                                                         <constraint firstItem="W24-4o-8J0" firstAttribute="leading" secondItem="iGU-qu-txQ" secondAttribute="leading" constant="8" id="MTQ-VG-uyV"/>
                                                                         <constraint firstItem="W24-4o-8J0" firstAttribute="top" secondItem="caE-Ng-hPN" secondAttribute="bottom" constant="8" id="OHB-4z-cIf"/>
+                                                                        <constraint firstItem="caE-Ng-hPN" firstAttribute="top" secondItem="erG-hP-toL" secondAttribute="bottom" constant="52.5" id="Qf1-fS-XBi"/>
                                                                         <constraint firstAttribute="trailing" secondItem="bKm-DR-648" secondAttribute="trailing" id="RSE-oP-qZi"/>
                                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vmS-Cd-fKS" secondAttribute="bottom" constant="16" id="WJd-PY-ksC"/>
                                                                         <constraint firstItem="5mW-sz-SMW" firstAttribute="top" secondItem="iGU-qu-txQ" secondAttribute="top" constant="16" id="aHj-lX-lXV"/>
+                                                                        <constraint firstItem="erG-hP-toL" firstAttribute="leading" secondItem="iGU-qu-txQ" secondAttribute="leading" id="gKB-B8-Wll"/>
                                                                         <constraint firstItem="zvJ-VM-5JN" firstAttribute="leading" secondItem="8Dn-78-uBS" secondAttribute="leading" id="gsy-Tg-cSa"/>
                                                                         <constraint firstAttribute="trailing" secondItem="5mW-sz-SMW" secondAttribute="trailing" id="hw4-Tx-Ylk"/>
-                                                                        <constraint firstItem="8Dn-78-uBS" firstAttribute="leading" secondItem="erG-hP-toL" secondAttribute="trailing" constant="8" id="iJS-sF-ryU"/>
-                                                                        <constraint firstItem="erG-hP-toL" firstAttribute="leading" secondItem="iGU-qu-txQ" secondAttribute="leading" constant="8" id="nE3-cV-xCW"/>
+                                                                        <constraint firstItem="8Dn-78-uBS" firstAttribute="leading" secondItem="erG-hP-toL" secondAttribute="trailing" constant="16" id="iJS-sF-ryU"/>
                                                                         <constraint firstAttribute="trailing" secondItem="vmS-Cd-fKS" secondAttribute="trailing" constant="8" id="o70-q5-VSe"/>
                                                                         <constraint firstItem="bKm-DR-648" firstAttribute="top" secondItem="5mW-sz-SMW" secondAttribute="bottom" id="tii-jj-7Go"/>
                                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zvJ-VM-5JN" secondAttribute="trailing" constant="8" id="tml-Bn-GTs"/>

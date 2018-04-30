@@ -177,7 +177,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     myStringafd = formatter.string(from: yourDate!)
     cell.timeLabel.text =  myStringafd
     cell.profilePicture.image = self.profilePic.image
-    cell.profilePicture.layer.cornerRadius = self.profilePic.frame.height/2
+    cell.profilePicture.layer.cornerRadius = cell.profilePicture.frame.height/2
     cell.profilePicture.layer.borderWidth = 2
     cell.profilePicture.layer.borderColor = UIColor.white.cgColor
     cell.locationLabel.text = Dream["location"] as? String
