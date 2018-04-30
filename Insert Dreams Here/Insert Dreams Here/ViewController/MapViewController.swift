@@ -21,6 +21,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
   var locations: [(CLLocationCoordinate2D, String)] = []
   var markers: [GMSMarker] = []
   var queue: OperationQueue!
+  var Profiles: [PFObject] = []
   
   @IBOutlet weak var mapTableView: UITableView!
   @IBOutlet weak var mapSearchBar: UISearchBar!
@@ -97,6 +98,38 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     let Dream = Dreams[indexPath.row]
     
     let user = Dream.author.username
+    let query = PFQuery(className: "Profile")
+    query.whereKey("author", equalTo: Dream.author)
+    query.includeKey("author.username")
+    
+    query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
+        if error == nil {
+            // The find succeeded.
+            print("Successfully retrieved \(objects!.count) profiles.")
+            if let objects = objects {
+                self.Profiles = objects
+                if let imageFile : PFFile = self.Profiles[0]["media"] as? PFFile {
+                    imageFile.getDataInBackground(block: { (data, error) in
+                        if error == nil {
+                            let image = UIImage(data: data!)
+                            cell.userImage.image = image
+                            cell.userImage.layer.cornerRadius = cell.userImage.frame.height/2
+                            cell.userImage.layer.borderWidth = 2
+                            cell.userImage.layer.borderColor = UIColor.white.cgColor
+                            
+                        } else {
+                            print(error!.localizedDescription)
+                        }
+                    })
+                }
+            }
+        } else {
+            // Log details of the failure
+            print("Error: \(error!)")
+        }
+    })
+    
+    
     cell.userNameLabel.text = "by " + user!
     
     cell.dreamContentLabel.text = Dream.body
