@@ -43,7 +43,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     getUserProfile()
   }
   
-  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getTimelineDreams()
+        getUserProfile()
+    }
+    
   func getUserProfile(){
     
     print("current user")
@@ -180,17 +185,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
   }
   
-  @IBAction func onEdit(_ sender: Any) {
-    NotificationCenter.default.post(name: NSNotification.Name("onEdit"), object: nil)
-  }
-  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if(segue.identifier == "showDreamDeatail"){
+    if(segue.identifier == "showDreamDetail"){
       var selectedRowIndex = self.userDreamTable.indexPathForSelectedRow
       let moveVC:EditDreamViewController = segue.destination as! EditDreamViewController
       print("selected Dream")
       moveVC.dTitle = Dreams[(selectedRowIndex?.row)!]["title"] as! String
+        print(Dreams[(selectedRowIndex?.row)!]["title"] as! String)
       moveVC.dBody = Dreams[(selectedRowIndex?.row)!]["body"] as! String
+        print(Dreams[(selectedRowIndex?.row)!]["body"] as! String)
       //print(Dreams[(selectedRowIndex?.row)!]["body"])
       
     }

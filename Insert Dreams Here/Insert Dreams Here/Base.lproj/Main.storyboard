@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Thin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -713,6 +722,7 @@
                                                             <outlet property="profilePicture" destination="erG-hP-toL" id="T0w-AR-Vyj"/>
                                                             <outlet property="timeLabel" destination="bKm-DR-648" id="I1E-8A-IJq"/>
                                                             <outlet property="titleLabel" destination="8Dn-78-uBS" id="Dyk-Dq-VUS"/>
+                                                            <segue destination="S1v-D6-GAU" kind="show" identifier="showDreamDetail" id="0Zq-E5-TRb"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -770,11 +780,10 @@
                         <viewLayoutGuide key="safeArea" id="soq-HE-i4m"/>
                     </view>
                     <navigationItem key="navigationItem" title="Timeline" id="Ojs-ag-9q8">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="GuE-9d-xz7">
-                            <color key="tintColor" red="1" green="0.90004761450000004" blue="0.18427719719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Khg-OW-fWm">
+                            <color key="tintColor" red="1" green="0.90196078431372551" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="onEdit:" destination="G0S-Qp-Jl1" id="Ouw-5J-qGF"/>
-                                <segue destination="OiT-uW-b0t" kind="show" identifier="showProfileDetail" id="ifo-Il-RL4"/>
+                                <segue destination="OiT-uW-b0t" kind="show" identifier="showProfileDetail" id="KeN-dD-qo4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="pjs-51-EOv">
@@ -968,11 +977,11 @@
         <scene sceneID="ojD-fd-Ltg">
             <objects>
                 <viewController id="S1v-D6-GAU" customClass="EditDreamViewController" customModule="Insert_Dreams_Here" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0vs-9z-aZI">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="0vs-9z-aZI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1A-C4-IJv">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1A-C4-IJv">
                                 <rect key="frame" x="123" y="585" width="129" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="oOR-La-hxd"/>
@@ -983,7 +992,7 @@
                                     <action selector="deleteDream:" destination="S1v-D6-GAU" eventType="touchUpInside" id="sai-lJ-VII"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Body" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k1Y-HS-9KE">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Body" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k1Y-HS-9KE">
                                 <rect key="frame" x="16" y="112" width="343" height="431"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -993,7 +1002,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G32-5M-tM0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G32-5M-tM0">
                                 <rect key="frame" x="16" y="57" width="343" height="47"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
