@@ -34,6 +34,10 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
     charCountLabel.text = String(characterLimit)
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -61,7 +65,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
       if let placeLikelihoodList = placeLikelihoodList {
         let place = placeLikelihoodList.likelihoods.first?.place
         if let place = place {
-          self.locationLabel.text = "Current Location"
+          let city = self.getAddressComponent(ofType: "locality", addrComponents: place.addressComponents!)
+          let state = self.getAddressComponent(ofType: "administrative_area_level_1", addrComponents: place.addressComponents!)
+          let country = self.getAddressComponent(ofType: "country", addrComponents: place.addressComponents!)
+          self.setFlag(countryName: country)
+          let location = city + ", " + state + ", " + country
+          self.locationLabel.text = location
           self.setCurrentCoordinates(myPlace: place)
         }
       }

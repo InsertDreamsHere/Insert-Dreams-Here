@@ -62,7 +62,6 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     mapTableView.rowHeight = UITableViewAutomaticDimension
     mapTableView.estimatedRowHeight = 200
     
-    
     // get dreams from data base
     fetchFromTheDatabase(tableName: "Dream")
     
