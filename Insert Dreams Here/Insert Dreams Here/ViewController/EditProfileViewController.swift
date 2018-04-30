@@ -8,90 +8,78 @@
 
 import UIKit
 import Parse
+import ParseUI
+import Toucan
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     
-    @IBOutlet weak var username: UILabel!
+    
+    @IBOutlet weak var username: UITextView!
     @IBOutlet weak var userBio: UITextView!
     @IBOutlet weak var userPicture: UIImageView!
+    
     var Profiles: [PFObject] = []
     var bio = ""
     var image = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         userBio.text = bio
-        userPicture = image
+        //userPicture = image
         username.text = PFUser.current()!["username"] as? String
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        userPicture.isUserInteractionEnabled = true
-        userPicture.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        
-        // Your action
+    @IBAction func onTapImageView(_ sender: Any) {
+        // Instantiate a UIImagePickerController
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
-        
-        self.present(vc, animated: true, completion: nil)
+        //vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             print("Camera is available 📸")
-            vc.sourceType = .camera
+            vc.sourceType = UIImagePickerControllerSourceType.camera
         } else {
             print("Camera 🚫 available so we will use photo library instead")
-            vc.sourceType = .photoLibrary
+            vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
         }
+        
+        self.present(vc, animated: true, completion: nil)
     }
     
+    
+    // When the user finishes taking the picture, UIImagePickerController returns a dictionary that contains the image and some other meta data. The full set of keys are listed here.
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage]
+        // let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-        // Do something with the images (based on your use case)
+        let resizedImage = Toucan.Resize.resizeImage(originalImage, size: CGSize(width: 258, height: 258))
         
-        //upload.image = editedImage
-        self.userPicture = editedImage as! UIImageView
-        
-        // Dismiss UIImagePickerController to go back to your original view controller
+        self.userPicture.image = resizedImage
         dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func updateEdit(_ sender: Any) {
-        var query = PFQuery(className:"profile")
-        print("date joined")
-        //print(PFUser.current()?.createdAt)
+        let query = PFQuery(className:"Profile")
         query.whereKey("author", equalTo: PFUser.current()!)
         query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
             if error == nil {
-                // The find succeeded.
                 print("Successfully retrieved \(objects!.count) Profile.")
-                // Do something with the found objects
                 objects![0]["bio"] = self.userBio.text as String
+                objects![0]["media"] = Profile.getPFFileFromImage(image: self.userPicture.image)
                 objects![0].saveInBackground()
                 _ = self.navigationController?.popViewController(animated: true)
             } else {
-                // Log details of the failure
                 print("Error: \(error!)")
             }
             
         })
-        
     }
-    
-
 }

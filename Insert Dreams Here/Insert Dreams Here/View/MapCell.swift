@@ -7,28 +7,28 @@
 //
 
 import UIKit
+import ParseUI
 
 class MapCell: UITableViewCell {
-    @IBOutlet weak var dreamTitleLabel: UILabel!
-    @IBOutlet weak var dreamContentLabel: UILabel!
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var postDateLabel: UILabel!
-    @IBOutlet weak var postLocationLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-        dreamContentLabel.numberOfLines = 5
-        dreamTitleLabel.numberOfLines = 2
-        userNameLabel.numberOfLines = 1
-        postLocationLabel.numberOfLines = 2
-    }
-
+  @IBOutlet weak var dreamTitleLabel: UILabel!
+  @IBOutlet weak var dreamContentLabel: UILabel!
+  @IBOutlet weak var userImage: PFImageView!
+  @IBOutlet weak var postDateLabel: UILabel!
+  @IBOutlet weak var postLocationLabel: UILabel!
+  @IBOutlet weak var userNameLabel: UILabel!
+  @IBOutlet weak var postTimeLabel: UILabel!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    // Configure the view for the selected state
+    dreamContentLabel.numberOfLines = 5
+    userNameLabel.numberOfLines = 1
+    dreamTitleLabel.numberOfLines = 3
+  }
+  
 }

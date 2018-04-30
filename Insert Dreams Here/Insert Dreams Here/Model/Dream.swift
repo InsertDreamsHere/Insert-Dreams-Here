@@ -11,6 +11,7 @@ import Parse
 
 class Dream: PFObject, PFSubclassing {
     @NSManaged var author: PFUser
+    
     @NSManaged var body: String
     @NSManaged var title: String
     @NSManaged var latitude: String
