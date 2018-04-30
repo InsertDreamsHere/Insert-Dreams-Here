@@ -166,12 +166,11 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
           if (success) {
             print("Dream count incremented successfully")
           } else {
-            print("Dream count error: \(String(describing: error))")
+            print("Dream count error incrementing: \(String(describing: error))")
           }
         }
       }
-    }
-    )
+    })
   }
   
   @IBAction func onPost(_ sender: Any) {

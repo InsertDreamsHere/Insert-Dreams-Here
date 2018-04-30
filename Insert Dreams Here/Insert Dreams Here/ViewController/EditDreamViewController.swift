@@ -62,7 +62,7 @@ class EditDreamViewController: UIViewController {
         // The find succeeded.
         print("Successfully retrieved \(objects!.count) Dream.")
         // Do something with the found objects
-        
+        self.dreamCountDecrementByOne()
         objects![0].deleteInBackground()
         _ = self.navigationController?.popViewController(animated: true)
       } else {
@@ -70,6 +70,24 @@ class EditDreamViewController: UIViewController {
         print("Error: \(error!)")
       }
       
+    })
+  }
+  
+  func dreamCountDecrementByOne() {
+    let query = PFQuery(className:"Profile")
+    query.whereKey("author", equalTo: PFUser.current()!)
+    query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
+      if error == nil {
+        objects![0].incrementKey("dreamCount", byAmount: -1)
+        objects![0].saveInBackground {
+          (success: Bool, error: Error?) in
+          if (success) {
+            print("Dream count decremented successfully")
+          } else {
+            print("Dream count error decrementing: \(String(describing: error))")
+          }
+        }
+      }
     })
   }
 }
