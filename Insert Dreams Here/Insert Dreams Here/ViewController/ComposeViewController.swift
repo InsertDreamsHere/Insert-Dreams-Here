@@ -10,7 +10,7 @@ import UIKit
 import GooglePlaces
 import GooglePlacePicker
 import FlagKit
-
+import Parse
 class ComposeViewController: UIViewController, UITextViewDelegate{
   
   @IBOutlet weak var dreamBody: UITextView!
@@ -154,6 +154,26 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
     present(alertControllerError, animated: true)
   }
   
+  
+  func dreamCountIncrementByOne() {
+    let query = PFQuery(className:"Profile")
+    query.whereKey("author", equalTo: PFUser.current()!)
+    query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
+      if error == nil {
+        objects![0].incrementKey("dreamCount")
+        objects![0].saveInBackground {
+          (success: Bool, error: Error?) in
+          if (success) {
+            print("Dream count incremented successfully")
+          } else {
+            print("Dream count error: \(String(describing: error))")
+          }
+        }
+      }
+    }
+    )
+  }
+  
   @IBAction func onPost(_ sender: Any) {
     print("Clicked share")
     dreamBody.resignFirstResponder()
@@ -177,6 +197,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
         Dream.sendDream(withContent: dreamBody.text, title: dreamTitle.text, lat: selectedLat, lon: selectedLon, loc: locationLabel.text) { (success, error) in
           if success {
             print("Great new dream!")
+            self.dreamCountIncrementByOne()
           } else if let e = error as NSError? {
             print(e.localizedDescription)
             print("Something went wrong with your dream post.")

@@ -40,6 +40,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
   
   @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
     getTimelineDreams()
+    getUserProfile()
   }
   
   
