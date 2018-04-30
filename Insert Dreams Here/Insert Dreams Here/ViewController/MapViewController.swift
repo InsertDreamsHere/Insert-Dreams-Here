@@ -58,7 +58,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
     mapTableView.contentOffset = CGPoint(x: 0, y: 1)
     mapTableView.rowHeight = UITableViewAutomaticDimension
-    mapTableView.estimatedRowHeight = 500
+    mapTableView.estimatedRowHeight = 100
     
     // get dreams from data base
     fetchFromTheDatabase(tableName: "Dream")
@@ -95,7 +95,7 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     let Dream = Dreams[indexPath.row]
     
     let user = Dream.author.username
-    cell.userNameLabel.text = user
+    cell.userNameLabel.text = "by " + user!
     
     cell.dreamContentLabel.text = Dream.body
     if (Dream.title.isEmpty || Dream.title.isEmpty)
@@ -107,15 +107,21 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     }
     let formatter = DateFormatter()
     // initially set the format based on your datepicker date
-    formatter.dateFormat = "MMM dd, yyyy"
+    formatter.dateFormat = "MM/dd/yyyy HH:mm:ssZ"
     let myString = formatter.string(from: Dream.createdAt!)
     // convert your string to date
     let yourDate = formatter.date(from: myString)
-    //then again set the date format whhich type of output you need
+    //then again set the date format which type of output you need
     formatter.dateFormat = "MMM dd, yyyy"
     // again convert your date to string
-    let Datelabel = formatter.string(from: yourDate!)
+    var Datelabel = formatter.string(from: yourDate!)
     cell.postDateLabel.text = Datelabel
+    
+    formatter.dateFormat = "h:mm a"
+    // again convert your date to string
+    Datelabel = formatter.string(from: yourDate!)
+    cell.postTimeLabel.text = Datelabel
+    
     
     cell.postLocationLabel.text = Dream["location"] as? String
     //cell.userImage

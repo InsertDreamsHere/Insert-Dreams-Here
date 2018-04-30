@@ -63,7 +63,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
             if let placeLikelihoodList = placeLikelihoodList {
                 let place = placeLikelihoodList.likelihoods.first?.place
                 if let place = place {
-                    self.updateLocationLabel(myPlace: place)
+                    self.locationLabel.text = "Current Location"
                     self.setCurrentCoordinates(myPlace: place)
                 }
             }
@@ -172,6 +172,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate{
                         lengthOfTitle = dreamBody.text.count
                     }
                     dreamTitle.text = String(dreamBody.text.prefix(lengthOfTitle))
+                    charCountLabel.text = String(characterLimit - dreamTitle.text.count)
                 }
                 let selectedLat = selectedLocation.latitude.description
                 let selectedLon = selectedLocation.longitude.description

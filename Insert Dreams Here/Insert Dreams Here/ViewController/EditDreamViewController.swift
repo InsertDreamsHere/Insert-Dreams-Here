@@ -33,7 +33,7 @@ class EditDreamViewController: UIViewController {
 
     
     @IBAction func updateDream(_ sender: Any) {
-        var query = PFQuery(className:"Dream")
+      let query = PFQuery(className:"Dream")
         query.whereKey("body", equalTo: dBody)
         query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
             if error == nil {
@@ -55,7 +55,7 @@ class EditDreamViewController: UIViewController {
     }
     @IBAction func deleteDream(_ sender: Any) {
         //NotificationCenter.default.post(name: NSNotification.Name("toProfile"), object: nil)
-        var query = PFQuery(className:"Dream")
+      let query = PFQuery(className:"Dream")
         query.whereKey("body", equalTo: dBody)
         query.findObjectsInBackground (block: {(objects:[PFObject]?, error: Error?) -> Void in
             if error == nil {

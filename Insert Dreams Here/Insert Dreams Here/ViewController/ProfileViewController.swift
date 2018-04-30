@@ -154,8 +154,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
             cell.titleLabel.text = Dream["title"] as? String
         }
 
-        let username = PFUser.current()!.username as! String
-        cell.authorLabel.text = "by " + username
+      let username = PFUser.current()?.username
+      cell.authorLabel.text = "by " + username!
         return cell
     }
 
@@ -176,7 +176,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showDreamDeatail"){
             var selectedRowIndex = self.userDreamTable.indexPathForSelectedRow
-            var moveVC:EditDreamViewController = segue.destination as! EditDreamViewController
+          let moveVC:EditDreamViewController = segue.destination as! EditDreamViewController
             print("selected Dream")
             moveVC.dTitle = Dreams[(selectedRowIndex?.row)!]["title"] as! String
             moveVC.dBody = Dreams[(selectedRowIndex?.row)!]["body"] as! String
@@ -185,7 +185,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
         }
         if(segue.identifier == "showProfileDetail"){
             
-            var moveVC:EditProfileViewController = segue.destination as! EditProfileViewController
+          let moveVC:EditProfileViewController = segue.destination as! EditProfileViewController
             moveVC.bio = biogrophyLabel.text!
             moveVC.image = profilePic
         }
