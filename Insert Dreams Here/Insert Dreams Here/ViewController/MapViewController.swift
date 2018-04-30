@@ -57,8 +57,11 @@ class MapViewController: UIViewController, UITableViewDataSource, CLLocationMana
     mapTableView.dataSource = self
     mapTableView.contentInset = UIEdgeInsets(top: 600, left: 0, bottom: 0, right: 0)
     mapTableView.contentOffset = CGPoint(x: 0, y: 1)
+    
+    
     mapTableView.rowHeight = UITableViewAutomaticDimension
-    mapTableView.estimatedRowHeight = 100
+    mapTableView.estimatedRowHeight = 200
+    
     
     // get dreams from data base
     fetchFromTheDatabase(tableName: "Dream")

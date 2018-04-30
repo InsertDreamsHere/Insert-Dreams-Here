@@ -13,7 +13,6 @@
 		22FEF640EA0B80EA0A68AE0B /* Pods_Insert_Dreams_Here.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA691EFCF3E92F028B57DFC /* Pods_Insert_Dreams_Here.framework */; };
 		44677E45024E462971F0AA80 /* Pods_Insert_Dreams_HereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F1C7FA1FA516BCB9028A1EC /* Pods_Insert_Dreams_HereTests.framework */; };
 		80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294455204A207F00FE7A60 /* ProfileViewController.swift */; };
-		80294458204A216600FE7A60 /* DreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80294457204A216600FE7A60 /* DreamCell.swift */; };
 		802A9AD7208E7FF600746AF4 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A9AD6208E7FF600746AF4 /* EditProfileViewController.swift */; };
 		802A9AD9208E892500746AF4 /* EditDreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A9AD8208E892500746AF4 /* EditDreamViewController.swift */; };
 		80BD4670207C1CB900DA3D1F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BD466F207C1CB900DA3D1F /* Profile.swift */; };
@@ -57,7 +56,6 @@
 		2403FBCE0F1C82112AC14603 /* Pods-Insert Dreams Here.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams Here.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here.release.xcconfig"; sourceTree = "<group>"; };
 		637436C6D181561832830E77 /* Pods-Insert Dreams HereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insert Dreams HereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests.debug.xcconfig"; sourceTree = "<group>"; };
 		80294455204A207F00FE7A60 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		80294457204A216600FE7A60 /* DreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamCell.swift; sourceTree = "<group>"; };
 		802A9AD6208E7FF600746AF4 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		802A9AD8208E892500746AF4 /* EditDreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDreamViewController.swift; sourceTree = "<group>"; };
 		80BD466F207C1CB900DA3D1F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				0A4DA4A0204A28AD00167173 /* MapCell.swift */,
-				80294457204A216600FE7A60 /* DreamCell.swift */,
 				80BD4671207EB12900DA3D1F /* ProfileCell.swift */,
 			);
 			path = View;
@@ -549,7 +546,6 @@
 				80BD4672207EB12900DA3D1F /* ProfileCell.swift in Sources */,
 				0A4DA4A3204A697600167173 /* MapViewController.swift in Sources */,
 				80294456204A207F00FE7A60 /* ProfileViewController.swift in Sources */,
-				80294458204A216600FE7A60 /* DreamCell.swift in Sources */,
 				DB2EC37E206F77AF001141C1 /* User.swift in Sources */,
 				802A9AD7208E7FF600746AF4 /* EditProfileViewController.swift in Sources */,
 				802A9AD9208E892500746AF4 /* EditDreamViewController.swift in Sources */,

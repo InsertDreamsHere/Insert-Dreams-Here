@@ -25,7 +25,7 @@ class MapCell: UITableViewCell {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     // Configure the view for the selected state
-    dreamContentLabel.numberOfLines = 15
+    dreamContentLabel.numberOfLines = 5
     userNameLabel.numberOfLines = 1
     dreamTitleLabel.numberOfLines = 3
   }

@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
   }
   
   func createProfile(){
-    Profile.createProfile(withLocation: "Monterey", withBio: "bio is empty", withImage: nil, withCompletion: { (success, error) in
+    Profile.createProfile(withLocation: "No Default Location Yet", withBio: "bio is empty", withImage: nil, withCompletion: { (success, error) in
       if success {
         print("Great new profile!")
       } else if let e = error as NSError? {
