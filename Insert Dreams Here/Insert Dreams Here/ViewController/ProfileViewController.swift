@@ -10,15 +10,15 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController, UITableViewDataSource {
-  
-  @IBOutlet weak var dreamCount: UILabel!
   @IBOutlet weak var profilePic: UIImageView!
   @IBOutlet weak var biogrophyLabel: UILabel!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var dateJoinedLabel: UILabel!
   @IBOutlet weak var userLocationLabel: UILabel!
-  @IBOutlet weak var userDreamTable: UITableView!
+  @IBOutlet weak var dreamCount: UILabel!
   @IBOutlet weak var dreamWordLabel: UILabel!
+  @IBOutlet weak var userDreamTable: UITableView!
+  
   var Dreams: [PFObject] = []
   var Profiles: [PFObject] = []
   var refreshControl: UIRefreshControl!
@@ -43,6 +43,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource {
     getUserProfile()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    getTimelineDreams()
+    getUserProfile()
+  }
   
   func getUserProfile(){
     

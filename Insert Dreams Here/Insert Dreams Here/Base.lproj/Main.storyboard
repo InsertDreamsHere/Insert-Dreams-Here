@@ -771,7 +771,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Timeline" id="Ojs-ag-9q8">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="GuE-9d-xz7">
-                            <color key="tintColor" red="1" green="0.90004761450000004" blue="0.18427719719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="1" green="0.90196078431372551" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onEdit:" destination="G0S-Qp-Jl1" id="Ouw-5J-qGF"/>
                                 <segue destination="OiT-uW-b0t" kind="show" identifier="showProfileDetail" id="ifo-Il-RL4"/>
@@ -1055,6 +1055,9 @@
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                             <color key="textColor" red="0.95294117649999999" green="0.97647058819999999" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.81176470590000005" green="0.70980392160000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
