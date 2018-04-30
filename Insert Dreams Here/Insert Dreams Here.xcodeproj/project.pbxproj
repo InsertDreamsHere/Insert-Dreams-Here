@@ -258,6 +258,8 @@
 				DB062CC8204A199300357BA3 /* Sources */,
 				DB062CC9204A199300357BA3 /* Frameworks */,
 				DB062CCA204A199300357BA3 /* Resources */,
+				938F0EB44462CAC101510C27 /* [CP] Embed Pods Frameworks */,
+				561BC7FA80D9B496693A782C /* [CP] Copy Pods Resources */,
 				57E2476644D22F5140CC40C7 /* [CP] Embed Pods Frameworks */,
 				9F98B0585A2A33ECB2DBD4B6 /* [CP] Copy Pods Resources */,
 			);
@@ -279,6 +281,8 @@
 				DB062CD3204A199300357BA3 /* Sources */,
 				DB062CD4204A199300357BA3 /* Frameworks */,
 				DB062CD5204A199300357BA3 /* Resources */,
+				D73B53AC6B7B8D8DA655E717 /* [CP] Embed Pods Frameworks */,
+				96433DEB7A6AE2AE2884FF54 /* [CP] Copy Pods Resources */,
 				D5AE711CC03453725A21D3ED /* [CP] Embed Pods Frameworks */,
 				E45772C5D77F0E788C92CA50 /* [CP] Copy Pods Resources */,
 			);
@@ -395,6 +399,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		561BC7FA80D9B496693A782C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		57E2476644D22F5140CC40C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,18 +457,37 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FlagKit/FlagKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseUI/ParseUI.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKPlaceholderTextView/RSKPlaceholderTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/Toucan/Toucan.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlagKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKPlaceholderTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toucan.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams Here/Pods-Insert Dreams Here-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		938F0EB44462CAC101510C27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereTests/Pods-Insert Dreams HereTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94704EA8C28DA57A083FC499 /* [CP] Check Pods Manifest.lock */ = {
@@ -468,6 +506,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96433DEB7A6AE2AE2884FF54 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9F98B0585A2A33ECB2DBD4B6 /* [CP] Copy Pods Resources */ = {
@@ -504,6 +557,21 @@
 			showEnvVarsInLog = 0;
 		};
 		D5AE711CC03453725A21D3ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insert Dreams HereUITests/Pods-Insert Dreams HereUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D73B53AC6B7B8D8DA655E717 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

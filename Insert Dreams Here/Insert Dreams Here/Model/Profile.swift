@@ -14,8 +14,8 @@ class Profile: PFObject, PFSubclassing {
   @NSManaged var dateJoined: Date
   @NSManaged var location: String
   @NSManaged var bio: String
-  @NSManaged var image: UIImage
   @NSManaged var dreamCount: Int
+  @NSManaged var media: PFFile
   /* Needed to implement PFSubclassing interface */
   class func parseClassName() -> String {
     return "Profile"
@@ -36,10 +36,28 @@ class Profile: PFObject, PFSubclassing {
     profile.author = PFUser.current()! // Pointer column type that points to PFUser
     profile.location = location!
     profile.bio = bio!
-    //profile.image = image!
+    profile.media = getPFFileFromImage(image: image)!
     profile.dateJoined = PFUser.current()!.createdAt!
     profile.dreamCount = 0
     // Save object (following function will save the object in Parse asynchronously)
     profile.saveInBackground(block: completion)
   }
+    /**
+     Method to convert UIImage to PFFile
+     
+     - parameter image: Image that the user wants to upload to parse
+     
+     - returns: PFFile for the the data in the image
+     */
+    class func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        // check if image is not nil
+        if let image = image {
+            // get image data and check if that is not nil
+            if let imageData = UIImagePNGRepresentation(image) {
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        return nil
+    }
+    
 }

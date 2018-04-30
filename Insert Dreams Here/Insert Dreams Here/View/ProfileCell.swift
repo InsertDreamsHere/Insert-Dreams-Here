@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ParseUI
 class ProfileCell: UITableViewCell {
   
   @IBOutlet weak var titleLabel: UILabel!
@@ -14,7 +15,7 @@ class ProfileCell: UITableViewCell {
   @IBOutlet weak var bodyLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var authorLabel: UILabel!
-  @IBOutlet weak var profilePicture: UIImageView!
+  @IBOutlet weak var profilePicture: PFImageView!
   
   @IBOutlet weak var timeLabel: UILabel!
   override func awakeFromNib() {

@@ -855,6 +855,9 @@
                                 <state key="normal" title="Edit profile picture">
                                     <color key="titleColor" red="0.81176470590000005" green="0.70980392160000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onTapImageView:" destination="OiT-uW-b0t" eventType="touchUpInside" id="Pg6-Wb-Yx7"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="PVA-r7-oKI">
                                 <rect key="frame" x="24" y="305" width="15" height="15"/>
