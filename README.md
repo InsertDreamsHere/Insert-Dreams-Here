@@ -14,24 +14,24 @@ The following **required** functionality is completed:
 - [x] User can log in and log out of their account
 - [x] The current signed in user is persisted across app restarts
 - [x] User can write a title, compose a dream, and post the dream.
-- [ ] User can select a location tag using Google Maps API, and post the dream
-- [ ] User can view the last 20 dreams posted on a Google Map as pins
-- [ ] User can tap on a pin on the map and see details appear in bottom drawer navigation (similar to Google Maps mobile app) Details include title, author, and preview 150 characters of the dream
-- [ ] User can tap on the bottom drawer navigation to view full dream
+- [x] User can select a location tag using Google Maps API, and post the dream
+- [x] User can view the last 20 dreams posted on a Google Map as pins
+- [x] User can tap on a pin on the map and see dream
+- [x] User can tap on a dream to read it fully
 
 
 The following **stretch** features are implemented:
-- [ ] User sees app logo on launch screen
-- [ ] User sees alerts for login exceptions, i.e. "account already exists", "wrong credentials", etc.
+- [x] User sees app logo on launch screen
+- [x] User sees alerts for login exceptions, i.e. "account already exists", "wrong credentials", etc.
 - [ ] User sees an activity indicator while waiting for authentication
-- [ ] User sees an activity indicator while waiting for the map of dreams to load
+- [x] User sees an activity indicator while waiting for the map of dreams to load
 - [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
 - [ ] Add an "Adorable Avatar" for each user by requesting an avatar from the [Adorable Avatars API](https://github.com/adorableio/avatars-api)
-- [ ] User can use a tab bar to switch between world map and user profile
-- [ ] User can see a tableview of their own dreams (a title, date, and preview of dream)
-- [ ] User can tap on a table cell to view their full dream, as well as edit and update their post
-- [ ]  Allow the logged in user to add a profile photo
-- [ ] Display the profile photo with each post
+- [x] User can use a tab bar to switch between world map and user profile
+- [x] User can see a tableview of their own dreams (a title, date, and preview of dream)
+- [x] User can tap on a table cell to view their full dream, as well as edit and update their post
+- [x] Allow the logged in user to add a profile photo
+- [x] Display the profile photo with each post
 - [ ] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] User can comment on a post and see all comments for each post in the post details screen
 - [ ] User can like a post and see number of likes for each post in the post details screen
